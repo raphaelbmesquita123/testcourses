@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from './styles/global'
+import { BrowserRouter } from 'react-router-dom'
+import {  ContainerMessage } from './styles/styles'
+
+import { NavBar } from './components/NavBar/NavBar'
+
+
+//REACT-RESPONSIVE-CAROUSEL
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { HomePage } from './pages/HomePage/HomePage';
+// import { UserPage } from './pages/UserPage/UserPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+        <GlobalStyle/>
+        <ContainerMessage>
+          <h1>
+            BE PREPARED FOR THE LABOR MARKET
+          </h1>
+        </ContainerMessage>
+        <NavBar />
+
+        <Carousel
+          infiniteLoop = {true}
+          autoPlay={true}
+          showThumbs={false}
+          showStatus={false}
+          showIndicators={false}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div>
+              <img src="./kpimage.png" alt='kpimage'/>
+          </div>
+          <div>
+              <img src="./cleannerimage.png" alt='cleannerimage'/>
+          </div>
+          <div>
+              <img src="./kpimage.png" alt='kpimage'/>
+          </div>
+      </Carousel>
+      <HomePage />
+      {/* <Switch>
+        <Router exact path="/" component={HomePage}/>
+        <Router exact path="/userpage" component={UserPage}/>
+
+      </Switch> */}
+    </BrowserRouter>
   );
 }
 
