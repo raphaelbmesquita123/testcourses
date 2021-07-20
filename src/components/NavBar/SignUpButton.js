@@ -19,8 +19,11 @@ const customStyles = {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       backgroundColor: 'var(--blue-500)',
-      zIndex: 10
     },
+    overlay: {
+        background: 'linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(233,233,233,0.5) 100%)',
+        zIndex:6,
+      },
   };
 
 const SignUpSchema = yup.object().shape({
