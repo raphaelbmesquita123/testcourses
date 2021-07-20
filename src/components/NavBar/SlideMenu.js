@@ -1,6 +1,6 @@
 import { SlideContainer } from './styles'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FaWindowClose, FaAngleRight } from "react-icons/fa";
 
 
@@ -11,8 +11,15 @@ export function SlideMenu() {
     return (
         <SlideContainer style={{ left:`${ slideOpen ? '0' : '-100%'}`}}>
             <div>
-                < FaWindowClose className='closeSlide' onClick={() => setSlideOpen(false)}/>
-                < FaAngleRight className='openSlide' onClick={() => setSlideOpen(true)} />
+                < FaWindowClose 
+                    className='closeSlide' 
+                    onClick={() => setSlideOpen(false)}
+                    />
+                < FaAngleRight 
+                    className='openSlide' 
+                    onClick={() => setSlideOpen(true)} 
+                    style={{ display: slideOpen ? 'none' : 'block'}}
+                    />
                 <ul>
                     <Link to='#' onClick={() => setSlideOpen(false)}>
                         <li>Home</li>

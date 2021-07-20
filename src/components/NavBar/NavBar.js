@@ -1,7 +1,10 @@
+import React from 'react'
 import { ContainerNav } from './styles'
 import { Link } from 'react-router-dom'
 import { SlideMenu } from './SlideMenu'
 import { useWindowSize } from '../../services/windowDimensions';
+import { LoginButton } from './LoginButton';
+import { SignUpButton } from './SignUpButton';
 
 export function NavBar() {
     const { width } = useWindowSize()
@@ -9,7 +12,7 @@ export function NavBar() {
     return (
         <ContainerNav>
             <img src="./testCourse.png" alt="topCourses Logo" />
-            {width > 600 
+            {width > 680 
             ?
                 <ul>
                     <Link to='#'>
@@ -26,8 +29,8 @@ export function NavBar() {
             <SlideMenu />
             }
             <div>
-                <button>Log in</button>
-                <button>Sign up</button>
+                <LoginButton/>
+                <SignUpButton/>
             </div>
         </ContainerNav>
     )
