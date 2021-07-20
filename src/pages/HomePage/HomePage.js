@@ -9,28 +9,6 @@ export function HomePage() {
     const { width } = useWindowSize()
     return (
         <Container>
-            <div className='messageContainer' id='MessageContainer'>
-                <h1>WHY TESTCOURSES?</h1>
-                <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta architecto odio exercitationem repudiandae consequuntur iste, alias ad quis corporis velit voluptas, laboriosam quam ut. Architecto distinctio dolores voluptatum blanditiis repellendus.
-                    Ipsa unde error accusamus aspernatur ipsum vitae! Aperiam sunt animi eius, tenetur nihil minus veniam repellat sint impedit, provident debitis, exercitationem accusamus voluptatem dicta obcaecati distinctio saepe quisquam aliquid sit.
-                </span>
-                <div>
-                    <Link to='/'>
-                        KNOW MORE
-                    </Link>
-                </div>
-            </div>
-            
-            <div className="ourCourses">
-                <h1> OUR COURSES </h1>
-                <section>
-                    <CourseCard image='./kpcourse.png'/>
-                    <CourseCard image='./kpcourse.png'/>
-                    <CourseCard image='./kpcourse.png'/>
-                    <CourseCard image='./kpcourse.png'/>
-                </section>
-            </div>
             <Carousel
             infiniteLoop = {true}
             autoPlay={true}
@@ -50,7 +28,27 @@ export function HomePage() {
                 </div>
               
             </Carousel>
-            
+            <div className="ourCourses">
+                <h1> OUR COURSES </h1>
+                <section>
+                    <CourseCard image='./kpcourse.png'/>
+                    <CourseCard image='./kpcourse.png'/>
+                    <CourseCard image='./kpcourse.png'/>
+                    <CourseCard image='./kpcourse.png'/>
+                </section>
+            </div>
+            <div className='messageContainer' id='MessageContainer'>
+                <h1>WHY TESTCOURSES?</h1>
+                <span>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta architecto odio exercitationem repudiandae consequuntur iste, alias ad quis corporis velit voluptas, laboriosam quam ut. Architecto distinctio dolores voluptatum blanditiis repellendus.
+                    Ipsa unde error accusamus aspernatur ipsum vitae! Aperiam sunt animi eius, tenetur nihil minus veniam repellat sint impedit, provident debitis, exercitationem accusamus voluptatem dicta obcaecati distinctio saepe quisquam aliquid sit.
+                </span>
+                <div>
+                    <Link to='/'>
+                        KNOW MORE
+                    </Link>
+                </div>
+            </div>
             <div className='certificateContainer'>
                 <h1>TEXTCOURSES CERTIFICATES</h1>
                 <div>
