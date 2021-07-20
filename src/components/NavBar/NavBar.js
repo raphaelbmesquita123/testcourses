@@ -21,9 +21,9 @@ export function NavBar() {
                     <Link to='#'>
                         <li>Contact Us</li>
                     </Link>
-                    <Link to='#'>
+                    <a href='#MessageContainer' >
                         <li>Why testCourses?</li>
-                    </Link>
+                    </a>
                 </ul>
             :
             <SlideMenu />

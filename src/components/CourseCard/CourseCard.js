@@ -6,7 +6,7 @@ import { CardContainer } from './styles'
 export function CourseCard({image}) {
     return (
         <CardContainer>
-            <img src={image}   alt="kp course" />
+            <img src={image}  alt="kp course" />
             <Link to='/'>
                 <span>
                     MORE INFORMATIONS

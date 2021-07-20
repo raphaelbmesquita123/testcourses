@@ -36,7 +36,7 @@ export const Container = styled.div `
             margin-top: 2rem;
         }
 
-        text{
+        span{
             margin-top: 2rem;
             max-width: 1080px;
             text-align: justify;
@@ -80,7 +80,7 @@ export const Container = styled.div `
                 width: 25rem;
             }
 
-            text{
+            span{
                 padding: 1rem;
                 margin-top: 1rem;
                 text-align: justify;

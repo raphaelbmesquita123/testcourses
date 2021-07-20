@@ -16,9 +16,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 import { HomePage } from './pages/HomePage/HomePage';
+
+import { useWindowSize } from './services/windowDimensions';
 // import { UserPage } from './pages/UserPage/UserPage';
 
 function App() {
+  const { width } = useWindowSize()
   return (
     <BrowserRouter>
         <ToastContainer
@@ -50,15 +53,16 @@ function App() {
           showArrows={false}
         >
           <div>
-              <img src="./kpimage.png" alt='kpimage'/>
+              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
           </div>
           <div>
-              <img src="./cleannerimage.png" alt='cleannerimage'/>
+              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
           </div>
           <div>
-              <img src="./kpimage.png" alt='kpimage'/>
+              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
           </div>
-      </Carousel>
+          
+        </Carousel>
       <HomePage />
       {/* <Switch>
         <Router exact path="/" component={HomePage}/>
@@ -66,19 +70,20 @@ function App() {
       </Switch> */}
 
       <FooterContainer>
-        
-        <Link to='/'>
-          TESTCOURSES@GMAILCOM
-        </Link>
-        <div>
+        <section>
           <Link to='/'>
-            <FaFacebook/>
+            TESTCOURSES@GMAILCOM
           </Link>
-          <Link to='/'>
-            <FaInstagram />
-          </Link>
-        </div>
-        <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
+          <div>
+            <Link to='/'>
+              <FaFacebook/>
+            </Link>
+            <Link to='/'>
+              <FaInstagram />
+            </Link>
+          </div>
+          <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
+        </section>
       </FooterContainer>
     </BrowserRouter>
   );
