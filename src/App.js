@@ -1,7 +1,9 @@
 import React from 'react'
 import { GlobalStyle } from './styles/global'
-import { BrowserRouter } from 'react-router-dom'
-import {  ContainerMessage } from './styles/styles'
+import { BrowserRouter, Link } from 'react-router-dom'
+import {  ContainerMessage, FooterContainer } from './styles/styles'
+
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { NavBar } from './components/NavBar/NavBar'
 
@@ -10,7 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //REACT-RESPONSIVE-CAROUSEL
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
 
 import { HomePage } from './pages/HomePage/HomePage';
@@ -62,6 +64,22 @@ function App() {
         <Router exact path="/" component={HomePage}/>
         <Router exact path="/userpage" component={UserPage}/>
       </Switch> */}
+
+      <FooterContainer>
+        
+        <Link to='/'>
+          TESTCOURSES@GMAILCOM
+        </Link>
+        <div>
+          <Link to='/'>
+            <FaFacebook/>
+          </Link>
+          <Link to='/'>
+            <FaInstagram />
+          </Link>
+        </div>
+        <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
+      </FooterContainer>
     </BrowserRouter>
   );
 }

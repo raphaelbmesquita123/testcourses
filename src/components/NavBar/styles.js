@@ -167,6 +167,7 @@ export const SignUpModal = styled.div`
         top: -0.5rem;
         right: -0.5rem;
         color: white;
+        cursor: pointer;
     }
 
     h1{
@@ -193,7 +194,7 @@ export const SignUpModal = styled.div`
 
         input{
             margin-top:1rem;
-            padding: 1rem;
+            padding:  0.7rem;
             &:focus{
                 border: none;
             }

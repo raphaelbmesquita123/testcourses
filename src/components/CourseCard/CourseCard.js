@@ -8,7 +8,9 @@ export function CourseCard({image}) {
         <CardContainer>
             <img src={image}   alt="kp course" />
             <Link to='/'>
-                MORE INFORMATIONS
+                <span>
+                    MORE INFORMATIONS
+                </span>
             </Link>
         </CardContainer>
     )

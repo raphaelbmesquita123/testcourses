@@ -27,9 +27,9 @@ const customStyles = {
   };
 
 const SignUpSchema = yup.object().shape({
-    firstName: yup.string().required('Name required'),
+    firstName: yup.string().required('First Name required'),
     accountType:yup.string(),
-    lastName: yup.string().required('Last required'),
+    lastName: yup.string().required('Last Name required'),
     email: yup.string().required('Email required'),
     password: yup.string().required('Password required').min(6, 'Minimum 6 characters'),
     passwordConfirmation: yup.string()
