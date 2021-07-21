@@ -17,8 +17,9 @@ export const Container = styled.div`
     .textWhy{
         display: flex;
         width: 100%;
-        padding: 4rem 2rem;
+        padding: 4rem 4rem;
         justify-content:center;
+
         p{
             text-align: justify;
             max-width: 1080px;
@@ -64,6 +65,41 @@ export const Container = styled.div`
                     width: 90%;
                 }
             }
+        }
+        img{
+            margin-top: 2rem;
+            width: 90%;
+            height: auto;
+            max-width: 1080px;
+            @media (max-width: 600px){
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .forCompanies{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+        h1{
+            padding: 0;
+            padding-bottom: 2rem;
+            color: var(--blue-500);
+            background: none;
+        }
+        div{
+            display: flex;
+            justify-content:center;
+            max-width: 1080px;
+            align-items: center;
+            p{
+                text-align: justify;
+                padding: 0 2rem 2rem 2rem;
+                min-width: 350px;
+                color: var(--blue-500);
+            }
+
         }
         img{
             margin-top: 2rem;

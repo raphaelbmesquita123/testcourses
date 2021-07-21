@@ -16,7 +16,13 @@ export default function WhyPage() {
                     <img src="./certificate.png" alt="certifiicate" />
                 </div>
                 <img src="./professionals.png" alt="professionals" />
-
+            </div>
+            <div className="forCompanies">
+                <h1> For Companies </h1>
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, esse et ad nulla eligendi temporibus officia cupiditate corrupti, iure repudiandae nihil placeat eos nam eveniet debitis eum sint autem similique!</p>
+                </div>
+                <img src="./companies.png" alt="professionals" />
             </div>
         </Container>
     )

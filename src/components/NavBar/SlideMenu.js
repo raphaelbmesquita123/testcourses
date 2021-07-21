@@ -21,7 +21,7 @@ export function SlideMenu() {
                     style={{ display: slideOpen ? 'none' : 'block'}}
                     />
                 <ul>
-                    <Link to='#' onClick={() => setSlideOpen(false)}>
+                    <Link to='/' onClick={() => setSlideOpen(false)}>
                         <li>Home</li>
                     </Link>
                     <a href='#contactUs' onClick={() => setSlideOpen(false)}>

@@ -54,17 +54,12 @@ export function HomePage() {
                     <CourseCard image='./kpcourse.png'/>
                 </section>
             </div>
-            <div className='messageContainer' id='MessageContainer'>
+            <div className='whyTestcourses'>
                 <h1>WHY TESTCOURSES?</h1>
                 <span>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta architecto odio exercitationem repudiandae consequuntur iste, alias ad quis corporis velit voluptas, laboriosam quam ut. Architecto distinctio dolores voluptatum blanditiis repellendus.
                     Ipsa unde error accusamus aspernatur ipsum vitae! Aperiam sunt animi eius, tenetur nihil minus veniam repellat sint impedit, provident debitis, exercitationem accusamus voluptatem dicta obcaecati distinctio saepe quisquam aliquid sit.
                 </span>
-                <div>
-                    <Link to='/WhyPage'>
-                        KNOW MORE
-                    </Link>
-                </div>
             </div>
             <div className='certificateContainer'>
                 <h1>TEXTCOURSES CERTIFICATES</h1>

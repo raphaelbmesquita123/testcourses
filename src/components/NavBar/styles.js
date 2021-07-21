@@ -41,7 +41,7 @@ export const ContainerNav = styled.nav`
 `
 
 export const SlideContainer = styled.div`
-    position: absolute;
+    position: fixed;
     background-color: var(--blue-900);
     width: 100%;
     height: 100vmax;

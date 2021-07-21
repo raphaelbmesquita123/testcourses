@@ -24,7 +24,7 @@ export const Container = styled.div `
         }
     }
     
-    .messageContainer{
+    .whyTestcourses{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -48,14 +48,7 @@ export const Container = styled.div `
             width: 100%;
             max-width: 1080px;
             margin: 1rem 0;
-            a{
-                text-decoration:none;
-                background-color: var(--gray);
-                padding: 0.7rem;
-                color: var(--blue-500);
-                cursor: pointer;
-                margin-top: 1rem;
-            }
+            
         }
     }
 
