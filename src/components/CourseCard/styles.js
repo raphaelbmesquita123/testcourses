@@ -5,7 +5,7 @@ export const CardContainer = styled.div `
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    width: 16rem;
+    width: 20rem;
     transition: transform 0.2s ease-in-out;
     margin: 1rem;
 

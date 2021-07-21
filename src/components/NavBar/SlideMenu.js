@@ -24,10 +24,10 @@ export function SlideMenu() {
                     <Link to='#' onClick={() => setSlideOpen(false)}>
                         <li>Home</li>
                     </Link>
-                    <Link to='#' onClick={() => setSlideOpen(false)}>
+                    <a href='#contactUs' onClick={() => setSlideOpen(false)}>
                         <li>Contact Us</li>
-                    </Link>
-                    <a href='#MessageContainer' onClick={() => setSlideOpen(false)}>
+                    </a>
+                    <a href='/WhyPage' onClick={() => setSlideOpen(false)}>
                         <li>Why testCourses?</li>
                     </a>
                 </ul>

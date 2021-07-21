@@ -1,7 +1,7 @@
 import React from 'react'
 import { GlobalStyle } from './styles/global'
-import { BrowserRouter, Link } from 'react-router-dom'
-import {  ContainerMessage, FooterContainer } from './styles/styles'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
+import { ContainerMessage, FooterContainer, CarouselContainer } from './styles/styles'
 
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
@@ -18,7 +18,9 @@ import { Carousel } from 'react-responsive-carousel';
 import { HomePage } from './pages/HomePage/HomePage';
 
 import { useWindowSize } from './services/windowDimensions';
-// import { UserPage } from './pages/UserPage/UserPage';
+
+import WhyPage from './pages/WhyPage/WhyPage';
+
 
 function App() {
   const { width } = useWindowSize()
@@ -42,32 +44,33 @@ function App() {
             BE PREPARED FOR THE LABOR MARKET
           </h1>
         </ContainerMessage>
-        <NavBar />
 
-        <Carousel
-          infiniteLoop = {true}
-          autoPlay={true}
-          showThumbs={false}
-          showStatus={false}
-          showIndicators={false}
-          showArrows={false}
-        >
-          <div>
-              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
-          </div>
-          <div>
-              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
-          </div>
-          <div>
-              <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
-          </div>
-          
-        </Carousel>
-      <HomePage />
-      {/* <Switch>
-        <Router exact path="/" component={HomePage}/>
-        <Router exact path="/userpage" component={UserPage}/>
-      </Switch> */}
+        <NavBar />
+        <CarouselContainer>
+          <Carousel
+            infiniteLoop = {true}
+            autoPlay={true}
+            showThumbs={false}
+            showStatus={false}
+            showIndicators={false}
+            showArrows={false}
+            >
+            <div>
+                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
+            </div>
+ 
+            <div>
+                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
+            </div>
+            <div>
+                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>
+            </div>
+          </Carousel>
+        </CarouselContainer>
+        <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/WhyPage" component={WhyPage}/>
+        </Switch>
 
       <FooterContainer>
         <section>

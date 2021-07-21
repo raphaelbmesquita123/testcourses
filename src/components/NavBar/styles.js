@@ -8,7 +8,7 @@ export const ContainerNav = styled.nav`
     height: 3.5rem;
 
     img{
-        height: 3rem;
+        height: 1.5rem;
         width: auto;
         cursor: pointer;
     }
@@ -35,7 +35,7 @@ export const ContainerNav = styled.nav`
 
     @media (max-width: 600px){
         img{
-            height: 2rem;
+            height: 1rem;
         }
     }
 `

@@ -15,13 +15,13 @@ export function NavBar() {
             {width > 680 
             ?
                 <ul>
-                    <Link to='#'>
+                    <Link to='/'>
                         <li>Home</li>
                     </Link>
-                    <Link to='#'>
+                    <a href='#contactUs'>
                         <li>Contact Us</li>
-                    </Link>
-                    <a href='#MessageContainer' >
+                    </a>
+                    <a href='/WhyPage' >
                         <li>Why testCourses?</li>
                     </a>
                 </ul>

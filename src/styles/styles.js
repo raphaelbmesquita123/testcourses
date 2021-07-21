@@ -67,3 +67,13 @@ export const FooterContainer = styled.footer`
         }
     }
 `
+
+export const CarouselContainer = styled.div`
+    .carousel{
+        div{
+            img{
+                height: calc(100vh - 5.5rem);
+            }
+        }
+    }
+`

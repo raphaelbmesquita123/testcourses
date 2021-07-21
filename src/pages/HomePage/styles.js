@@ -72,18 +72,27 @@ export const Container = styled.div `
         }
         div{
             display: flex;
+            flex-direction: row;
             justify-content: center;
+            align-items: center;
             max-width: 1080px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            margin: 3rem 2rem;
             img{
-                width: 25rem;
+                width: auto;
+                height: 17rem;
             }
 
             span{
-                padding: 1rem;
-                margin-top: 1rem;
+                margin-left: 1rem;
                 text-align: justify;
+            }
+
+            @media (max-width: 800px){
+                flex-direction: column;
+                span{
+                    margin: 0;
+                    padding: 2rem 0 0 0;
+                }
             }
         }
 
@@ -93,4 +102,75 @@ export const Container = styled.div `
             }
         }
     }
-`
+
+    .contactUs{
+        display: flex;
+        justify-content: center; 
+        background: linear-gradient(360deg, rgba(46,63,108,1) 0%, rgba(33,69,156,1) 100%);
+        padding: 6rem 1rem;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            min-width: 22rem;
+            max-width:1080px;
+
+            input{
+                padding:1rem;
+                margin-top: 1rem;
+                font-size: 1rem;
+                color: white;
+                background: var(--blue-900);
+                font-family: 'Arial';
+                box-shadow: -5px 5px 5px rgba(0,0,0,10%);
+                border: 1px solid var(--blue-900);
+
+                &:first-child{
+                    margin: 0;
+                }
+                
+                &:focus{
+                    outline: 0;
+                    border: 1px solid var(--white);
+                }
+                &::placeholder{
+                    color: white;
+                }
+            }
+            
+            textarea{
+                margin-top: 1rem;
+                padding: 1rem;
+                font-size: 1rem;
+                border: none;
+                background: var(--blue-900);
+                height: 10rem;
+                color: white;
+                box-shadow: -5px 5px 5px rgba(0,0,0,10%);
+                border: 1px solid var(--blue-900);
+                
+                &:focus{
+                    box-shadow: 0 0 0 0;
+                    outline: 0;
+                    border: 1px solid var(--white);
+                }
+                &::placeholder{
+                    color: white;
+                    font-family: 'Arial';
+                }
+            }
+            
+            input[type=submit]{
+                box-shadow: 0 0 0 0;
+                border: 0 none;
+                outline: 0;
+                background: var(--blue-900);
+                cursor: pointer;
+                &:hover{
+                    background: var(--blue-500);
+                }
+            }
+        }
+    }
+    `
