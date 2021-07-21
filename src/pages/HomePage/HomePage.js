@@ -83,7 +83,7 @@ export function HomePage() {
 
                     <textarea name="message" className="formTextArea" placeholder='DROP US A MESSAGE' required/>
 
-                    <input type="submit" value="Enviar"/>
+                    <button type="submit">Send</button>
                 </form>
             </div>
         </Container>

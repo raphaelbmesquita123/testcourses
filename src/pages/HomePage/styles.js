@@ -161,12 +161,15 @@ export const Container = styled.div `
                 }
             }
             
-            input[type=submit]{
+            button{
                 box-shadow: 0 0 0 0;
                 border: 0 none;
                 outline: 0;
                 background: var(--blue-900);
                 cursor: pointer;
+                height: 3.5rem;
+                margin-top: 1rem;
+                color: white;
                 &:hover{
                     background: var(--blue-500);
                 }
