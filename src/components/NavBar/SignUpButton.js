@@ -38,7 +38,7 @@ const SignUpSchema = yup.object().shape({
 
 
 export function SignUpButton() {
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [ modalIsOpen, setIsOpen ] = useState(false);
     const [ accountType, setAccountType ] = useState(true)
 
 

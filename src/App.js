@@ -11,62 +11,68 @@ import { NavBar } from './components/NavBar/NavBar'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { HomePage } from './pages/HomePage/HomePage';
 
-import WhyPage from './pages/WhyPage/WhyPage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { WhyPage } from './pages/WhyPage/WhyPage';
+import { BasketPage } from './pages/Basket/BasketPage';
 
 import { UserPage } from './pages/UserPage/UserPage';
+import { UserProvider } from './context/UserContext/UserContext';
+import { BasketProvider } from './context/BasketContext/BasketContext';
 
 
 function App() {
-
-
   return (
-    <BrowserRouter>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+    <BasketProvider>
+      <UserProvider>
+        <BrowserRouter>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              />
 
-        <GlobalStyle/>
-        <ContainerMessage>
-          <h1>
-            BE PREPARED FOR THE LABOR MARKET
-          </h1>
-        </ContainerMessage>
+            <GlobalStyle/>
+            <ContainerMessage>
+              <h1>
+                BE PREPARED FOR THE LABOR MARKET
+              </h1>
+            </ContainerMessage>
 
-        <NavBar />
+            <NavBar />
 
-        <Switch>
-          <Route exact path="/" component={HomePage}/>
-          <Route exact path="/WhyPage" component={WhyPage}/>
-          <Route exact path="/UserPage" component={UserPage}/>
-        </Switch>
+            <Switch>
+              <Route exact path="/" component={HomePage}/>
+              <Route exact path="/WhyPage" component={WhyPage}/>
+              <Route exact path="/UserPage" component={UserPage}/>
+              <Route exact path="/BasketPage" component={BasketPage}/>
+            </Switch>
 
-      <FooterContainer>
-        <section>
-          <Link to='/'>
-            TESTCOURSES@GMAILCOM
-          </Link>
-          <div>
-            <Link to='/'>
-              <FaFacebook/>
-            </Link>
-            <Link to='/'>
-              <FaInstagram />
-            </Link>
-          </div>
-          <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
-        </section>
-      </FooterContainer>
-    </BrowserRouter>
+          <FooterContainer>
+            <section>
+              <Link to='/'>
+                TESTCOURSES@GMAILCOM
+              </Link>
+              <div>
+                <Link to='/'>
+                  <FaFacebook/>
+                </Link>
+                <Link to='/'>
+                  <FaInstagram />
+                </Link>
+              </div>
+              <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
+            </section>
+          </FooterContainer>
+        </BrowserRouter>
+      </UserProvider>
+    </BasketProvider>
   );
 }
 

@@ -1,15 +1,16 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { ContainerNav } from './styles'
-import { Link } from 'react-router-dom'
 import { SlideMenu } from './SlideMenu'
 import { useWindowSize } from '../../services/windowDimensions';
 import { LoginButton } from './LoginButton';
 import { SignUpButton } from './SignUpButton';
-import { IsUserLogged } from './isUserLogged.js/IsUserLogged';
+import { UserLogged } from './UserLogged/UserLogged';
+
+import { User } from '../../context/UserContext/UserContext';
 
 export function NavBar() {
     const { width } = useWindowSize()
-    const [ logged, setLogged ] = useState(true)
+    const { isUserLogged } = User()
         
     return (
         <ContainerNav>
@@ -17,9 +18,9 @@ export function NavBar() {
             {width > 680 
             ?
                 <ul>
-                    <Link to='/'>
+                    <a href='/'>
                         <li>Home</li>
-                    </Link>
+                    </a>
                     <a href='#contactUs'>
                         <li>Contact Us</li>
                     </a>
@@ -30,8 +31,8 @@ export function NavBar() {
             :
             <SlideMenu />
             }
-            { logged ? 
-            <IsUserLogged />
+            { isUserLogged ? 
+            <UserLogged />
             :
             <div>
                 <LoginButton/>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from './styles'
 
-export default function WhyPage() {
+export function WhyPage() {
     return (
         <Container>
             <section>

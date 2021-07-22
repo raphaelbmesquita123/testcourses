@@ -26,6 +26,18 @@ export const CardContainer = styled.div `
         height: 2.5rem;
     }
 
+    div{
+        background: var(--blue-900);
+        width: 100%;
+        p{
+            padding: 1rem 0;
+            color: var(--gray);
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+    }
+
     &:hover{
         transform: scale(1.05);
     }
