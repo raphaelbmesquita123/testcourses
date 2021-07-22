@@ -9,7 +9,7 @@ export function IsUserLogged() {
                 <a href='/'> Log out</a>
             </div>
             <section>
-                <a to='/UserPage'>
+                <a href='/UserPage'>
                     <span>RM</span>
                 </a>
             </section>

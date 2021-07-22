@@ -1,7 +1,7 @@
 import React from 'react'
 import { GlobalStyle } from './styles/global'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
-import { ContainerMessage, FooterContainer, CarouselContainer } from './styles/styles'
+import { ContainerMessage, FooterContainer } from './styles/styles'
 
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
