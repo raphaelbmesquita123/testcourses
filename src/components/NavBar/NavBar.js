@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { ContainerNav } from './styles'
 import { Link } from 'react-router-dom'
 import { SlideMenu } from './SlideMenu'
@@ -9,6 +9,7 @@ import { IsUserLogged } from './isUserLogged.js/IsUserLogged';
 
 export function NavBar() {
     const { width } = useWindowSize()
+    const [ logged, setLogged ] = useState(true)
         
     return (
         <ContainerNav>
@@ -29,7 +30,7 @@ export function NavBar() {
             :
             <SlideMenu />
             }
-            { true ? 
+            { logged ? 
             <IsUserLogged />
             :
             <div>
