@@ -4,7 +4,7 @@ export const Container = styled.div `
     .logoCasousel{
         background: var(--blue-500);
         img{
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
     }
     .ourCourses{

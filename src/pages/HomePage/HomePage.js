@@ -30,7 +30,7 @@ export function HomePage() {
         
         var settings = {
             infinite: true,
-            slidesToShow: width < 600 ? 2 : 4,
+            slidesToShow: width < 600 ? 2 : width < 1000 ? 3 : 6,
             slidesToScroll: 1,
             autoplay: true,
             speed: 2000,
@@ -67,6 +67,7 @@ export function HomePage() {
                     <img src="./l3.png" alt="" />                
                     <img src="./l1.png" alt="" />                
                     <img src="./l2.png" alt="" />                
+                    <img src="./l3.png" alt="" />                          
                     <img src="./l3.png" alt="" />                          
                 </Slider>
             </div>
