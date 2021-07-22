@@ -45,6 +45,7 @@ export const Container = styled.div `
             background: var(--blue-500);
             height: 100%;
             min-width: 22rem;
+            border-radius: 2rem 0 2rem 0;
 
             h1{
                 color: var(--gray);

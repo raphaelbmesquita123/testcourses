@@ -1,8 +1,8 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+
 import { CourseCard } from '../../components/CourseCard/CourseCard'
 import { Container } from './styles'
-// import { Carousel } from 'react-responsive-carousel';
+
 import { useWindowSize } from '../../services/windowDimensions';
 import emailjs from 'emailjs-com';
 import { toast } from 'react-toastify';
@@ -30,36 +30,17 @@ export function HomePage() {
         
         var settings = {
             infinite: true,
-            slidesToShow: width < 600 ? 2 : width < 1000 ? 3 : 6,
+            slidesToShow: width < 600 ? 2 : width < 1000 ? 5 : 6,
             slidesToScroll: 1,
             autoplay: true,
             speed: 2000,
             autoplaySpeed: 2000,
             cssEase: "linear",
-
+            arrows: false,
           };
 
     return (
         <Container>
-            {/* <Carousel
-            infiniteLoop = {true}
-            autoPlay={true}
-            showThumbs={false}
-            showStatus={false}
-            showIndicators={false}
-            showArrows={false}
-            >
-                <div>
-                    <img src={width < 600 ? './logo2.png' : './logo1.png'}  alt='kpimage'/>
-                </div>
-                <div>
-                    <img src={width < 600 ? './logo2.png' : './logo1.png'}  alt='kpimage'/>
-                </div>
-                <div>
-                    <img src={width < 600 ? './logo2.png' : './logo1.png'}  alt='kpimage'/>
-                </div>
-              
-            </Carousel> */}
             <div className='logoCasousel'>
                 <Slider {...settings}>
                     <img src="./l1.png" alt="" />                

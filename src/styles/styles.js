@@ -1,5 +1,44 @@
 import styled from 'styled-components'
 
+export const CarouselContainer = styled.div`
+    div{
+        position: relative;
+        height: calc(100vh - 5.5rem);
+        section{
+            position: absolute;
+            bottom: 3rem;
+            left: 2rem;
+            color: var(--gray);
+            h2{
+                font-size:3rem;
+            }
+            p{
+                margin-top: 1rem;
+            }
+        }
+
+
+        img{
+            height: 100%;
+        }
+
+        @media (max-width: 600px) {
+            section{
+                width: 80%;
+                left: 50%;
+                transform: translateX(-50%);
+                h2{
+                    font-size:2rem;
+                }
+                p{
+                    margin-top: 1rem;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+`
 
 export const ContainerMessage = styled.div`
     display: flex;
@@ -68,12 +107,3 @@ export const FooterContainer = styled.footer`
     }
 `
 
-export const CarouselContainer = styled.div`
-    .carousel{
-        div{
-            img{
-                height: calc(100vh - 5.5rem);
-            }
-        }
-    }
-`
