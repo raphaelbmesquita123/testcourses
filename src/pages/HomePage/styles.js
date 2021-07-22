@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div `
     .logoCasousel{
         background: var(--blue-500);
+        overflow: hidden;
         img{
             padding: 1rem 2rem;
         }
