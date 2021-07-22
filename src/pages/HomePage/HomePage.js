@@ -1,11 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { CourseCard } from '../../components/CourseCard/CourseCard'
 import { Container } from './styles'
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import { useWindowSize } from '../../services/windowDimensions';
 import emailjs from 'emailjs-com';
 import { toast } from 'react-toastify';
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
     
 
@@ -24,10 +28,20 @@ export function HomePage() {
             });
         }
         
+        var settings = {
+            infinite: true,
+            slidesToShow: width < 600 ? 2 : 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            speed: 2000,
+            autoplaySpeed: 2000,
+            cssEase: "linear",
+
+          };
 
     return (
         <Container>
-            <Carousel
+            {/* <Carousel
             infiniteLoop = {true}
             autoPlay={true}
             showThumbs={false}
@@ -45,7 +59,17 @@ export function HomePage() {
                     <img src={width < 600 ? './logo2.png' : './logo1.png'}  alt='kpimage'/>
                 </div>
               
-            </Carousel>
+            </Carousel> */}
+            <div className='logoCasousel'>
+                <Slider {...settings}>
+                    <img src="./l1.png" alt="" />                
+                    <img src="./l2.png" alt="" />                
+                    <img src="./l3.png" alt="" />                
+                    <img src="./l1.png" alt="" />                
+                    <img src="./l2.png" alt="" />                
+                    <img src="./l3.png" alt="" />                          
+                </Slider>
+            </div>
             <div className="ourCourses">
                 <h1> OUR COURSES </h1>
                 <section>
@@ -55,11 +79,16 @@ export function HomePage() {
                 </section>
             </div>
             <div className='whyTestcourses'>
-                <h1>WHY TESTCOURSES?</h1>
-                <span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta architecto odio exercitationem repudiandae consequuntur iste, alias ad quis corporis velit voluptas, laboriosam quam ut. Architecto distinctio dolores voluptatum blanditiis repellendus.
-                    Ipsa unde error accusamus aspernatur ipsum vitae! Aperiam sunt animi eius, tenetur nihil minus veniam repellat sint impedit, provident debitis, exercitationem accusamus voluptatem dicta obcaecati distinctio saepe quisquam aliquid sit.
-                </span>
+                <div>
+
+                </div>
+                <div>
+                    <h1>WHY TESTCOURSES?</h1>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta architecto odio exercitationem repudiandae consequuntur iste, alias ad quis corporis velit voluptas, laboriosam quam ut. Architecto distinctio dolores voluptatum blanditiis repellendus.
+                        Ipsa unde error accusamus aspernatur ipsum vitae! Aperiam sunt animi eius, tenetur nihil minus veniam repellat sint impedit, provident debitis, exercitationem accusamus voluptatem dicta obcaecati distinctio saepe quisquam aliquid sit.
+                    </p>
+                </div>
             </div>
             <div className='certificateContainer'>
                 <h1>TEXTCOURSES CERTIFICATES</h1>

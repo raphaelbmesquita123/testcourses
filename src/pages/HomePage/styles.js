@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 
 export const Container = styled.div `
+    .logoCasousel{
+        background: var(--blue-500);
+        img{
+            padding: 0 2rem;
+        }
+    }
     .ourCourses{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding: 4rem 2rem;
 
         h1{
-            margin-top: 2rem;
             color: var(--blue-500);
         }
 
@@ -20,35 +26,36 @@ export const Container = styled.div `
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 0 2rem 0;
+            padding-top: 3rem;
         }
     }
     
     .whyTestcourses{
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        background-color: var(--blue-500);
-        padding: 2rem;
+        background-image: url(./background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 6rem 2rem;
+        flex-wrap: wrap;
 
-        h1{
-            color: var(--gray);
-            margin-top: 2rem;
-        }
-
-        span{
-            margin-top: 2rem;
-            max-width: 1080px;
-            text-align: justify;
-            color: var(--gray);
-        }
         div{
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-            max-width: 1080px;
-            margin: 1rem 0;
+            width: 50%;
+            background: var(--blue-500);
+            height: 100%;
+            min-width: 22rem;
+
+            h1{
+                color: var(--gray);
+                padding: 2rem 2rem 0 2rem;
+            }
             
+            p{
+                text-align: justify;
+                padding: 2rem 2rem 2rem 2rem;
+                color: var(--gray);
+            }
         }
     }
 
