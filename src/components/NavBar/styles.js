@@ -6,7 +6,8 @@ export const ContainerNav = styled.nav`
     align-items: center;
     padding: 0 1rem;
     height: 3.5rem;
-
+    max-width: 1280px;
+    margin: 0 auto;
     img{
         height: 1.5rem;
         width: auto;

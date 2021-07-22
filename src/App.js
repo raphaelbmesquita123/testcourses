@@ -11,32 +11,15 @@ import { NavBar } from './components/NavBar/NavBar'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import { HomePage } from './pages/HomePage/HomePage';
-
-import { useWindowSize } from './services/windowDimensions';
 
 import WhyPage from './pages/WhyPage/WhyPage';
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import { UserPage } from './pages/UserPage/UserPage';
 
 
 function App() {
-  const { width } = useWindowSize()
 
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    slickPlay: true,
-    autoplay: true,
-    arrows: false,
-    autoPlaySpeed:true,
-  };
 
   return (
     <BrowserRouter>
@@ -60,36 +43,11 @@ function App() {
         </ContainerMessage>
 
         <NavBar />
-        <CarouselContainer>
-          <Slider {...settings}>
-              <div>
-                <section>
-                  <h2>Kitchen Porter</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
-                </section>
-                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
-              </div>
-              
-              <div>
-              <section>
-                  <h2>Kitchen Porter1</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
-                </section>
-                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
-              </div>
 
-              <div>
-                <section>
-                  <h2>Kitchen Porter2</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
-                </section>
-                <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
-              </div>                     
-          </Slider>
-        </CarouselContainer>
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route exact path="/WhyPage" component={WhyPage}/>
+          <Route exact path="/UserPage" component={UserPage}/>
         </Switch>
 
       <FooterContainer>

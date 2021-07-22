@@ -1,17 +1,29 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: orange; */
     width: 100%;
-    h1{
-        background: var(--blue-500);
-        padding: 5rem 0;
+    section{
+        display: flex;
+        justify-content:center;
+        align-items:center;
         color: var(--white);
+        background-image: url(./fromHome.png);
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: center;
         width: 100%;
-        text-align: center;
+        height: calc(100vh - 5.5rem);
+
+        h1{
+            padding: 2rem;
+            font-size: 5rem;
+            text-shadow: -5px 5px 10px rgba(0,0,0,50%);
+
+            @media (max-width: 600px){
+                width: 90%;
+                font-size: 3rem;
+            }
+        }
     }
 
     .textWhy{
@@ -33,9 +45,12 @@ export const Container = styled.div`
         align-items: center;
         background: var(--blue-500);
         padding: 4rem 2rem;
-        h1{
+
+        h2{
             padding: 0;
             padding-bottom: 2rem;
+            color: var(--white);
+            font-size: 2rem;
         }
         div{
             display: flex;
@@ -82,11 +97,10 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         padding: 4rem 2rem;
-        h1{
-            padding: 0;
+        h2{
             padding-bottom: 2rem;
             color: var(--blue-500);
-            background: none;
+            font-size: 2rem;
         }
         div{
             display: flex;

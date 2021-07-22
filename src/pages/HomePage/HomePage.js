@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CourseCard } from '../../components/CourseCard/CourseCard'
-import { Container } from './styles'
+import { Container, CarouselContainer } from './styles'
 
 import { useWindowSize } from '../../services/windowDimensions';
 import emailjs from 'emailjs-com';
@@ -15,7 +15,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 export function HomePage() {
     const { width } = useWindowSize()
-
 
     function sendEmail(e) {
         e.preventDefault();
@@ -39,8 +38,48 @@ export function HomePage() {
             arrows: false,
           };
 
+        var settings2 = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            slickPlay: true,
+            autoplay: true,
+            arrows: false,
+            autoPlaySpeed:true,
+        };
+        
+
     return (
         <Container>
+            <CarouselContainer>
+                <Slider {...settings2}>
+                    <div>
+                        <section>
+                        <h2>Kitchen Porter</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
+                        </section>
+                        <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
+                    </div>
+                    
+                    <div>
+                    <section>
+                        <h2>Kitchen Porter1</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
+                        </section>
+                        <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
+                    </div>
+
+                    <div>
+                        <section>
+                        <h2>Kitchen Porter2</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam est ducimus quasi distinctio vel fuga veniam consequuntur eveniet minima fugiat rerum numquam accusamus, eligendi nulla praesentium voluptatibus et. Magnam, aliquid.</p>
+                        </section>
+                        <img src={width < 600 ? './kpimage2.png' : './kpimage.png'} alt='kpimage'/>                
+                    </div>                     
+                </Slider>
+            </CarouselContainer>
             <div className='logoCasousel'>
                 <Slider {...settings}>
                     <img src="./l1.png" alt="" />                

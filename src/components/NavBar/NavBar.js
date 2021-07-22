@@ -5,10 +5,11 @@ import { SlideMenu } from './SlideMenu'
 import { useWindowSize } from '../../services/windowDimensions';
 import { LoginButton } from './LoginButton';
 import { SignUpButton } from './SignUpButton';
+import { IsUserLogged } from './isUserLogged.js/IsUserLogged';
 
 export function NavBar() {
     const { width } = useWindowSize()
-    
+        
     return (
         <ContainerNav>
             <img src="./testCourse.png" alt="topCourses Logo" />
@@ -28,10 +29,14 @@ export function NavBar() {
             :
             <SlideMenu />
             }
+            { true ? 
+            <IsUserLogged />
+            :
             <div>
                 <LoginButton/>
                 <SignUpButton/>
             </div>
+            }
         </ContainerNav>
     )
 }
