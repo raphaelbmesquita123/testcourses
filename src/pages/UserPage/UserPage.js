@@ -29,6 +29,8 @@ export function UserPage() {
                     ?
                         <>
                             <CourseCard image='./kpcourse.png'/>
+                            <CourseCard image='./kpcourse.png'/>
+                            <CourseCard image='./kpcourse.png'/>
                         </>
                     : option === 2 
                     ?

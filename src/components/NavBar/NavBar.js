@@ -27,6 +27,15 @@ export function NavBar() {
                     <a href='/WhyPage' >
                         <li>Why testCourses?</li>
                     </a>
+                    {
+                        isUserLogged ? 
+                        ''
+                        :
+                        <a href='/Basket' >
+                            <li>Basket</li>
+                        </a>
+
+                    }
                 </ul>
             :
             <SlideMenu />

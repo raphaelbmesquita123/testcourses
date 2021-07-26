@@ -19,7 +19,7 @@ export function UserLogged() {
     return (
         <Container>
             <div>
-                <a href='/BasketPage'>{basket.length === 0 ? '' : <span>basket.length</span>} Basket</a>
+                <a href='/BasketPage'>{basket.length === 0 ? '' : <span>{basket.length}</span>} Basket</a>
                 <p onClick={HandleUserLogOut}> Log out</p>
             </div>
             <section>

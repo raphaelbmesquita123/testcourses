@@ -26,6 +26,8 @@ export const Container = styled.div`
     }
 
     section{
+        display: flex;
+        justify-content: center;
         background-color: var(--blue-100);
         padding: 3rem 2rem;
     }
