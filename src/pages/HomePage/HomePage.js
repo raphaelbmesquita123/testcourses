@@ -11,10 +11,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+import { Basket } from '../../context/BasketContext/BasketContext';
+
     
 
 export function HomePage() {
     const { width } = useWindowSize()
+    const { courses, isLoading } = Basket()
 
     function sendEmail(e) {
         e.preventDefault();
@@ -94,9 +97,14 @@ export function HomePage() {
             <div className="ourCourses">
                 <h1> OUR COURSES </h1>
                 <section>
-                    <CourseCard image='./kpcourse.png'/>
-                    <CourseCard image='./kpcourse.png'/>
-                    <CourseCard image='./kpcourse.png'/>
+                    {
+                        isLoading ? 
+                        ''
+                        :
+                        courses.map( course => {
+                            return <CourseCard key={course.id} image={process.env.REACT_APP_STRIPE_URL + course.image} id={course.id} payed={false}/>
+                        })
+                    }
                 </section>
             </div>
             <div className='whyTestcourses'>

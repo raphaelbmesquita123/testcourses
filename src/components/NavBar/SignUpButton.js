@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { SignUpContainer, SignUpModal, SignUpModalContainer } from './styles'
 import { useForm } from 'react-hook-form'
+import { api } from '../../services/api/api'
 
 import Modal from 'react-modal';
 import { FaWindowClose } from "react-icons/fa";
@@ -28,8 +29,8 @@ const customStyles = {
 
 const SignUpSchema = yup.object().shape({
     firstName: yup.string().required('First Name required'),
-    accountType:yup.string(),
     lastName: yup.string().required('Last Name required'),
+    accountType:yup.string(),
     email: yup.string().required('Email required'),
     password: yup.string().required('Password required').min(6, 'Minimum 6 characters'),
     passwordConfirmation: yup.string()
@@ -46,9 +47,16 @@ export function SignUpButton() {
         resolver: yupResolver(SignUpSchema)
       });
 
-    const handleSignIn = (e) => {
+    const handleSignIn = async (e) => {
         try{
-            console.log(e)
+            await api.post('/users', {
+                firstName: e.firstName,
+                lastName: e.lastName,
+                username: e.email,
+                email: e.email,
+                accountType: e.accountType,
+                password: e.password,
+            })
             setIsOpen(false)
             toast.success('Account Created Successfully')
         } catch (err){

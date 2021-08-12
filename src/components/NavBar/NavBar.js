@@ -7,14 +7,17 @@ import { SignUpButton } from './SignUpButton';
 import { UserLogged } from './UserLogged/UserLogged';
 
 import { User } from '../../context/UserContext/UserContext';
+import { Link } from 'react-router-dom';
 
 export function NavBar() {
     const { width } = useWindowSize()
-    const { isUserLogged } = User()
-        
+    const { user } = User()
+
     return (
         <ContainerNav>
-            <img src="./testCourse.png" alt="topCourses Logo" />
+            <Link to='/'>
+                <img src="./testCourse.png" alt="topCourses Logo" />
+            </Link>
             {width > 680 
             ?
                 <ul>
@@ -27,26 +30,18 @@ export function NavBar() {
                     <a href='/WhyPage' >
                         <li>Why testCourses?</li>
                     </a>
-                    {
-                        isUserLogged ? 
-                        ''
-                        :
-                        <a href='/Basket' >
-                            <li>Basket</li>
-                        </a>
-
-                    }
                 </ul>
             :
             <SlideMenu />
             }
-            { isUserLogged ? 
-            <UserLogged />
-            :
+
+            { user === null ? 
             <div>
                 <LoginButton/>
                 <SignUpButton/>
             </div>
+            :
+            <UserLogged />
             }
         </ContainerNav>
     )

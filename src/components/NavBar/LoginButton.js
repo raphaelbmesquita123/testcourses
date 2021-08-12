@@ -1,9 +1,12 @@
 import { LoginButtonContainer, LoginContainer } from './styles'
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
 
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
+import { api } from '../../services/api/api'
+import { User } from '../../context/UserContext/UserContext';
 
 import { toast } from 'react-toastify';
 
@@ -14,20 +17,43 @@ const LoginSchema = yup.object().shape({
 
 export function LoginButton() {
     const [ loginOpen, setLoginOpen ] = useState(false);
+    const { UserLogIn } = User()
 
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(LoginSchema)
       });
 
-    const handleLogin = (e) => {
+    const handleLogIn = async (value) => {
         try{
-            setLoginOpen(false)
-            toast.success('Welcome NAME')
-        } catch (err){
+            await api.post('/auth/local',{
+                identifier: value.email,
+                password: value.password,
+                })
+                .then(response => {
+                // Handle success.
+                    const { data } = response
+                    UserLogIn(data)
+                    setLoginOpen(false)
+                    toast.success(`Welcome ${data.user.firstName}`)
+                })
+                .catch(error => {
+                // Handle error.
+                const { data } = error.response
+                if (data.error) {
+                    if (data.message[0].messages[0].message === 'Identifier or password invalid.') {
+                        toast.error('E-mail or password incorrect')
+                    } else if (data.message[0].messages[0].id === 'Auth.form.error.confirmed') {
+                        toast.error('Confirm your email bedore continuing')
+                    }
+                    else {
+                        toast.error('E-mail or password incorrect')
+                    }
+                } 
+            });           
+        }catch (err){
             console.log(err)
         }
-    }
-    
+      }
     return (
         <LoginContainer>
             <LoginButtonContainer onClick={() => setLoginOpen(!loginOpen)}>
@@ -35,7 +61,7 @@ export function LoginButton() {
             </LoginButtonContainer>
             <form 
                 style={{ display: loginOpen? 'flex' : 'none'}}
-                onSubmit={handleSubmit(handleLogin)}
+                onSubmit={handleSubmit(handleLogIn)}
                 >
                 <input 
                     {...register('email')}

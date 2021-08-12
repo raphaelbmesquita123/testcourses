@@ -8,6 +8,12 @@ export const ContainerNav = styled.nav`
     height: 3.5rem;
     max-width: 1280px;
     margin: 0 auto;
+    
+    
+    /* width: 100%;
+    position: sticky;
+    background: orange;
+    z-index:2; */
     img{
         height: 1.5rem;
         width: auto;

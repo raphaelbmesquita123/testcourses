@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { HomePage } from './pages/HomePage/HomePage';
 import { WhyPage } from './pages/WhyPage/WhyPage';
-import { BasketPage } from './pages/Basket/BasketPage';
 
 import { UserPage } from './pages/UserPage/UserPage';
 import { UserProvider } from './context/UserContext/UserContext';
@@ -50,8 +49,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={HomePage}/>
               <Route exact path="/WhyPage" component={WhyPage}/>
-              <Route exact path="/UserPage" component={UserPage}/>
-              <Route exact path="/BasketPage" component={BasketPage}/>
+              <Route exact path="/:id" component={UserPage}/>
             </Switch>
 
           <FooterContainer>
