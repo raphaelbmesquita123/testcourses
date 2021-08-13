@@ -80,7 +80,7 @@ export default function CheckoutForm() {
   };
 
   const handleSubmit = async ev => {
-
+    ev.preventDefault();
     setProcessing(true);
 
     const payload = await stripe.confirmCardPayment(clientSecret, {
@@ -94,14 +94,14 @@ export default function CheckoutForm() {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
+      toast.success('Your payment has been successfully')
       handleCourseAndUser(itensToBasket, userToCheckout)
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      toast.success('Your payment has been successfully')
-
+      console.log('aqui')
     }
-
+    
   };
 
   return (
