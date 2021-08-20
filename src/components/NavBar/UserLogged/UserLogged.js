@@ -19,19 +19,17 @@ export function UserLogged() {
     return (
         <Container>
             <div>
-                <Link to={`/${user.user.firstName+user.user.lastName}`}>{basket.length === 0 ? '' : <span>{basket.length}</span>} Basket</Link>
+                <Link to={`/user/${user.user.firstName+user.user.lastName}`}>{basket.length === 0 ? '' : <span>{basket.length}</span>} Basket</Link>
                 <p onClick={HandleUserLogOut}>Log out</p>
             </div>
-            <section>
-                <Link to={`/${user.user.firstName+user.user.lastName}`}>
-                    {
-                        user === null ?
-                        ''
-                        : 
-                        user.user.firstName[0] + user.user.lastName[0]
-                    }
-                </Link>
-            </section>
+            <Link to={`/user/${user.user.firstName+user.user.lastName}`}>
+                <section>
+                        {
+                            user&& 
+                            user.user.firstName[0] + user.user.lastName[0]
+                        }
+                </section>
+            </Link>
         </Container>
     )
 }

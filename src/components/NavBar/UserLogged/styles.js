@@ -39,23 +39,18 @@ export const Container = styled.div`
         }
        
     }
-    
-    section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        border: 3px solid var(--blue-500);
-        border-radius: 100%;
-        cursor: pointer;
-        
-        a{
-            font-weight: bold;
-            color: var(--blue-500);
-            font-size: 0.9rem;
-            text-decoration:none;
+    a{
+        text-decoration: none;
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--blue-500);
+            border-radius: 100%;
+            cursor: pointer;
+            text-transform: uppercase;
         }
-        
     }
 `

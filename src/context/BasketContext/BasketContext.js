@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { api } from '../../services/api/api'
+import { User } from '../UserContext/UserContext'
 
 export const BasketContext = createContext({})
 
 export function BasketProvider ({ children }) {
+    const { user } = User()
     const [ basket, setBasket ] = useState(() => {
         const localStore = localStorage.getItem('@Web-courses-basket:')
         if(localStore){
@@ -15,7 +17,6 @@ export function BasketProvider ({ children }) {
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect( () => {
-        try{
             api.get('/courses', 
             {
                 headers: {
@@ -24,23 +25,19 @@ export function BasketProvider ({ children }) {
             }
             )
             .then(response => {
-
                 const { data } = response
                 const dataToBasket = data.map(item => {
                     return{
                         id: item.id,
                         price: item.price,
-                        image: item.image[0].url
+                        image: item.image[0].url,
+                        payed_clients: item.payed_clients,
                     }
                 })
                 setCourses(dataToBasket)
                 setIsLoading(false)
             })
             .catch(error => console.log(error))
-        } catch(error){
-            console.log(error)
-        }
-        
     }, [])
 
     async function addToBasket (id){
@@ -50,12 +47,24 @@ export function BasketProvider ({ children }) {
                 Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`
             }
         })
-        const hasCourseOnBaket = basket.find(course => course.id === data.id)
 
-        if(!hasCourseOnBaket){
-            setBasket([...basket, data])
-            localStorage.setItem('@Web-courses-basket:', JSON.stringify([...basket, data]))
+        try{
+            const hasCourseOnBaket = basket.find(course => course.id === data.id)
+
+            if(!hasCourseOnBaket){
+                const splitClients = data.payed_clients.split(' ')
+                const isUserPayed = splitClients.includes(user.user.email)
+
+                if(!isUserPayed){
+                    setBasket([...basket, data])
+                    localStorage.setItem('@Web-courses-basket:', JSON.stringify([...basket, data]))
+                }
+            }
+
+        } catch (err){
+            console.log(err)
         }
+       
     }
 
     async function deletItem(id) {
@@ -70,6 +79,11 @@ export function BasketProvider ({ children }) {
         localStorage.setItem('@Web-courses-basket:', JSON.stringify(newBasket))
     }
 
+    function cleanBasket () {
+        setBasket([])
+        localStorage.removeItem('@Web-courses-basket:')
+    }
+
     return(
         <BasketContext.Provider
             value={{
@@ -77,6 +91,7 @@ export function BasketProvider ({ children }) {
                 courses,
                 isLoading,
                 addToBasket,
+                cleanBasket,
                 deletItem
             }}
         >

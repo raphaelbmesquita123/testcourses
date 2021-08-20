@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100%;
+
     section{
         display: flex;
         justify-content:center;
@@ -30,7 +31,7 @@ export const Container = styled.div`
     .textWhy{
         display: flex;
         width: 100%;
-        padding: 4rem 4rem;
+        padding: 4rem 2rem;
         justify-content:center;
 
         p{
@@ -65,7 +66,7 @@ export const Container = styled.div`
                 color: white;
             }
             img{
-                height: 8rem;
+                height: 12rem;
                 margin: 0;
                 width: auto;
             }
@@ -82,47 +83,89 @@ export const Container = styled.div`
                 }
             }
         }
-        img{
-            margin-top: 2rem;
-            width: 90%;
-            height: auto;
-            max-width: 1080px;
-            @media (max-width: 600px){
-                margin-top: 1rem;
-            }
-        }
     }
-
-    .forCompanies{
+    .FAQ {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4rem 2rem;
-        h2{
-            padding-bottom: 2rem;
-            color: var(--blue-500);
-            font-size: 2rem;
-        }
-        div{
-            display: flex;
-            justify-content:center;
-            max-width: 1080px;
-            align-items: center;
-            p{
-                text-align: justify;
-                padding: 0 2rem 2rem 2rem;
-                min-width: 350px;
-                color: var(--blue-500);
-            }
+        padding:1rem 2rem; 
+        background: var(--gray);
 
+        h1{
+            color: var(--blue-500);
+            margin: 2rem 0;
         }
-        img{
-            margin-top: 2rem;
-            width: 90%;
-            height: auto;
-            max-width: 1080px;
-            @media (max-width: 600px){
+    }
+    .contactUs{
+        display: flex;
+        justify-content: center; 
+        background: linear-gradient(360deg, rgba(46,63,108,1) 0%, rgba(33,69,156,1) 100%);
+        padding: 6rem 2rem;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            min-width: 22rem;
+            max-width:1080px;
+
+            input{
+                padding:1rem;
                 margin-top: 1rem;
+                font-size: 1rem;
+                color: white;
+                background: var(--blue-900);
+                font-family: 'Arial';
+                box-shadow: -5px 5px 5px rgba(0,0,0,10%);
+                border: 1px solid var(--blue-900);
+
+                &:first-child{
+                    margin: 0;
+                }
+                
+                &:focus{
+                    outline: 0;
+                    border: 1px solid var(--white);
+                }
+                &::placeholder{
+                    color: white;
+                }
+            }
+            
+            textarea{
+                margin-top: 1rem;
+                padding: 1rem;
+                font-size: 1rem;
+                border: none;
+                background: var(--blue-900);
+                height: 10rem;
+                color: white;
+                box-shadow: -5px 5px 5px rgba(0,0,0,10%);
+                border: 1px solid var(--blue-900);
+                
+                &:focus{
+                    box-shadow: 0 0 0 0;
+                    outline: 0;
+                    border: 1px solid var(--white);
+                }
+                &::placeholder{
+                    color: white;
+                    font-family: 'Arial';
+                }
+            }
+            
+            button{
+                box-shadow: 0 0 0 0;
+                border: 0 none;
+                outline: 0;
+                background: var(--blue-900);
+                cursor: pointer;
+                height: 3.5rem;
+                margin-top: 1rem;
+                color: white;
+                &:hover{
+                    background: var(--blue-500);
+                }
             }
         }
     }

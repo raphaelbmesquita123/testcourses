@@ -9,11 +9,6 @@ export const ContainerNav = styled.nav`
     max-width: 1280px;
     margin: 0 auto;
     
-    
-    /* width: 100%;
-    position: sticky;
-    background: orange;
-    z-index:2; */
     img{
         height: 1.5rem;
         width: auto;
@@ -182,7 +177,7 @@ export const SignUpModal = styled.div`
         margin: 0 auto;
         padding: 1rem 0 2rem 0;
     }
-    div{
+    /* div{
         display: flex;
         width: 100%;
 
@@ -191,14 +186,14 @@ export const SignUpModal = styled.div`
             color: white;
             cursor: pointer;
         }
-    }
+    } */
 
     form{
         display: flex;
         flex-direction: column;
         padding: 1rem;
         background-color: var(--blue-100);
-
+  
         input{
             margin-top:1rem;
             padding:  0.7rem;
@@ -222,7 +217,14 @@ export const SignUpModal = styled.div`
             border: none;
             margin-top: 1rem;
             background: var(--gray);
-            color: var(--blue-500)
+            color: var(--blue-500);
+
+            &:disabled{
+                opacity: 0.5;
+            }
+        }
+        .recaptcha{
+            margin-top: 1rem;
         }
     }
 `

@@ -3,13 +3,14 @@ import { SignUpContainer, SignUpModal, SignUpModalContainer } from './styles'
 import { useForm } from 'react-hook-form'
 import { api } from '../../services/api/api'
 
-import Modal from 'react-modal';
-import { FaWindowClose } from "react-icons/fa";
-
+//yup
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import Modal from 'react-modal';
 import { toast } from 'react-toastify';
+import { FaWindowClose } from "react-icons/fa";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const customStyles = {
     content: {
@@ -30,22 +31,25 @@ const customStyles = {
 const SignUpSchema = yup.object().shape({
     firstName: yup.string().required('First Name required'),
     lastName: yup.string().required('Last Name required'),
-    accountType:yup.string(),
+    // accountType: yup.string().required(),
     email: yup.string().required('Email required'),
     password: yup.string().required('Password required').min(6, 'Minimum 6 characters'),
     passwordConfirmation: yup.string()
     .oneOf([yup.ref('password'), null], 'Passwords must match')
 });
 
-
 export function SignUpButton() {
     const [ modalIsOpen, setIsOpen ] = useState(false);
-    const [ accountType, setAccountType ] = useState(true)
-
+    const [ isVerified, setIsVerified ] = useState(true)
 
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(SignUpSchema)
       });
+
+        
+    function HandleRecaptcha() {
+        setIsVerified(false)
+    }
 
     const handleSignIn = async (e) => {
         try{
@@ -54,9 +58,14 @@ export function SignUpButton() {
                 lastName: e.lastName,
                 username: e.email,
                 email: e.email,
-                accountType: e.accountType,
+                // accountType: e.accountType,
                 password: e.password,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`
+                }  
             })
+
             setIsOpen(false)
             toast.success('Account Created Successfully')
         } catch (err){
@@ -70,6 +79,7 @@ export function SignUpButton() {
 
     function closeModal() {
       setIsOpen(false);
+      setIsVerified(true)
     }
 
     return (
@@ -90,17 +100,6 @@ export function SignUpButton() {
                 <SignUpModal>
                     <FaWindowClose className="closeModal" onClick={closeModal}/>
                     <h1>Create your Account</h1>
-
-                    <div>
-                        <h2 
-                            onClick={() => setAccountType(true)}
-                            style={{ background: accountType ? 'var(--blue-100)': 'var(--blue-500)'}}>
-                            Professional</h2>
-                        <h2 
-                            onClick={() => setAccountType(false)}
-                            style={{ background: accountType ? 'var(--blue-500)': 'var(--blue-100)'}}>
-                            Company</h2>
-                    </div>
 
                     <form onSubmit={handleSubmit(handleSignIn)} >
                         <input 
@@ -127,12 +126,14 @@ export function SignUpButton() {
                             :
                             ''
                         }
-                        <input 
-                            {...register('accountType')}
-                            type="text" 
-                            value={accountType? 'Professional' : 'Company'} 
-                            readOnly
-                            />
+                        {/* <label htmlFor="accountType">Type of Account</label>
+
+                        <select 
+                            {...register('accountType')}>
+                            <option>Professinal</option>
+                            <option>Company</option>
+                        </select > */}
+                        
                         <input 
                             {...register('email')}
                             type="email" 
@@ -145,7 +146,6 @@ export function SignUpButton() {
                             :
                             ''
                         }
-       
                         <input 
                             {...register('password')}
                             type="password" 
@@ -158,7 +158,6 @@ export function SignUpButton() {
                             :
                             ''
                         }
-               
                         <input 
                             {...register('passwordConfirmation')}
                             type="password" 
@@ -171,7 +170,12 @@ export function SignUpButton() {
                             :
                             ''
                         }
-                        <button type="submit" value="Confirm">Create</button>
+                        <ReCAPTCHA
+                            className="recaptcha"
+                            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                            onChange={HandleRecaptcha}
+                            />
+                        <button type="submit" value="Confirm" disabled={isVerified}>Create</button>
                     </form>
                 </SignUpModal>
             </Modal>

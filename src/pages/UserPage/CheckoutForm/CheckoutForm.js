@@ -5,9 +5,9 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import { CheckOutForm } from './stylesCheckOut'
-import { Basket } from '../../context/BasketContext/BasketContext'
-import { User } from '../../context/UserContext/UserContext'
-import { handleCourseAndUser } from "../../services/addClientToCourse/addClientToCourse";
+import { Basket } from '../../../context/BasketContext/BasketContext'
+import { User } from '../../../context/UserContext/UserContext'
+import { handleCourseAndUser } from "../../../services/addClientToCourse/addClientToCourse";
 import { toast } from "react-toastify";
 
 export default function CheckoutForm() {
@@ -18,7 +18,7 @@ export default function CheckoutForm() {
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
-  const { basket } = Basket();
+  const { basket, cleanBasket } = Basket();
   const { user } = User()
 
   const itensToBasket = basket.map(item => {
@@ -36,15 +36,13 @@ export default function CheckoutForm() {
   }
 
   useEffect(() => {
-    window
-      .fetch(`${process.env.REACT_APP_NODE_URL}/create-payment-intent`, {
+    window.fetch(`${process.env.REACT_APP_NODE_URL}/create-payment-intent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          items: itensToBasket,
-          user: userToCheckout,
+          items: itensToBasket
         })
       })
       .then(res => {
@@ -99,7 +97,7 @@ export default function CheckoutForm() {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      console.log('aqui')
+      cleanBasket()
     }
     
   };

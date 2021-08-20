@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from 'react'
-// import { api } from '../../services/api/api';
 
 export const UserContext = createContext({})
 
@@ -11,7 +10,8 @@ export function UserProvider ({ children }) {
         }
         return null
     });
-
+    const [ userCourses, setUserCourses ] = useState([])
+    console.log(userCourses)
 
     function UserLogOut () {
         setUser(null)
@@ -22,13 +22,18 @@ export function UserProvider ({ children }) {
         localStorage.setItem('@Web-courses-login:', JSON.stringify(data))
         setUser(data)
     }
-
+    
+    function handleUserCourses(courses) {
+        setUserCourses(courses)
+    }
 
     return(
         <UserContext.Provider 
             value={{
                 user,
+                userCourses,
                 UserLogOut,
+                handleUserCourses,
                 UserLogIn
             }}
         >

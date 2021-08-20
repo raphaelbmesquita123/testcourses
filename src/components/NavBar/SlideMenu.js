@@ -7,6 +7,7 @@ import { FaWindowClose, FaAngleRight } from "react-icons/fa";
 export function SlideMenu() {
     const [ slideOpen, setSlideOpen ] = useState(false)
 
+
     return (
         <SlideContainer style={{ left:`${ slideOpen ? '0' : '-100%'}`}}>
             <div>

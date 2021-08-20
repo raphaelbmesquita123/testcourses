@@ -28,6 +28,10 @@ export function LoginButton() {
             await api.post('/auth/local',{
                 identifier: value.email,
                 password: value.password,
+                },{
+                    headers: {
+                        Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`
+                    }
                 })
                 .then(response => {
                 // Handle success.

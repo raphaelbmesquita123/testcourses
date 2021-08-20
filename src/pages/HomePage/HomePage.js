@@ -4,8 +4,6 @@ import { CourseCard } from '../../components/CourseCard/CourseCard'
 import { Container, CarouselContainer } from './styles'
 
 import { useWindowSize } from '../../services/windowDimensions';
-import emailjs from 'emailjs-com';
-import { toast } from 'react-toastify';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -13,22 +11,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Basket } from '../../context/BasketContext/BasketContext';
 
-    
-
 export function HomePage() {
     const { width } = useWindowSize()
     const { courses, isLoading } = Basket()
-
-    function sendEmail(e) {
-        e.preventDefault();
-        emailjs.sendForm('service_xfskimn', 'template_a3j93kc', e.target, 'user_b3vLK4nmsJDCovCRtPpoB')
-            .then((result) => {
-            toast.success('You message was sent')
-            console.log(result.text);
-            }, (error) => {
-            console.log(error.text);
-            });
-        }
         
         var settings = {
             infinite: true,
@@ -127,17 +112,6 @@ export function HomePage() {
                     Esse corporis quo rem repellendus adipisci cum soluta illum velit beatae, quasi aspernatur assumenda officia aliquid voluptas magni debitis labore? Dignissimos maiores aspernatur totam, molestiae sit error omnis excepturi quisquam!
                     Nobis, voluptatum dicta? Iste eos sed recusandae modi minus aspernatur, magni quod, explicabo a facere, sit quo? Explicabo placeat, illum similique unde aut magni rem omnis.</span>
                 </div>
-            </div>
-            <div className='contactUs' id='contactUs'>
-                <form  onSubmit={sendEmail}>
-                    <input type="text" name="name" placeholder="Name" required/>
-
-                    <input type="text" name="email" placeholder="Email" required/>
-
-                    <textarea name="message" className="formTextArea" placeholder='DROP US A MESSAGE' required/>
-
-                    <button type="submit">Send</button>
-                </form>
             </div>
         </Container>
     )
