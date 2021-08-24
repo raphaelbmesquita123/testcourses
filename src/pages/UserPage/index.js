@@ -1,10 +1,11 @@
 import React from 'react'
-import { ProfessionalUser } from './ProfessionalUser/ProfessionalUser'
-
-import { User } from '../../context/UserContext/UserContext'
-
 import { useHistory } from 'react-router-dom'
 
+//component
+import { ProfessionalUser } from './ProfessionalUser'
+
+//context
+import { User } from '../../context/UserContext'
 
 
 export function UserPage() {

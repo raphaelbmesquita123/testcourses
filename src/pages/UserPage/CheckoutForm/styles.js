@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 export const CheckOutForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-      0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-    border-radius: 7px;
-    width: 60vw;
-    min-width: 350px;
-    margin-top: 2rem;
-  
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  width: 60vw;
+  min-width: 350px;
+  margin-top: 2rem;
+
   input {
     border-radius: 6px;
     margin-bottom: 6px;
@@ -22,11 +22,11 @@ export const CheckOutForm = styled.form`
     background: white;
     box-sizing: border-box;
   }
-  
+
   .hidden {
     display: none;
   }
-  
+
   #card-error {
     color: rgb(105, 115, 134);
     font-size: 16px;
@@ -34,9 +34,9 @@ export const CheckOutForm = styled.form`
     margin-top: 12px;
     text-align: center;
     color: orange;
-}
+  }
 
-#card-element {
+  #card-element {
     border-radius: 4px 4px 0 0;
     padding: 12px;
     border: 1px solid rgba(50, 50, 93, 0.1);
@@ -46,11 +46,11 @@ export const CheckOutForm = styled.form`
     box-sizing: border-box;
     color: orange;
   }
-  
+
   #payment-request-button {
     margin-bottom: 32px;
   }
-  
+
   /* Buttons and links */
   button {
     background: #5469d4;
@@ -67,23 +67,23 @@ export const CheckOutForm = styled.form`
     box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
     width: 100%;
   }
-  
+
   button:hover {
     filter: contrast(115%);
   }
-  
+
   button:disabled {
     opacity: 0.5;
     cursor: default;
   }
-  
+
   /* spinner/processing state, errors */
   .spinner,
   .spinner:before,
   .spinner:after {
     border-radius: 50%;
   }
-  
+
   .spinner {
     color: #ffffff;
     font-size: 22px;
@@ -97,13 +97,13 @@ export const CheckOutForm = styled.form`
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
-  
+
   .spinner:before,
   .spinner:after {
     position: absolute;
-    content: "";
+    content: '';
   }
-  
+
   .spinner:before {
     width: 10.4px;
     height: 20.4px;
@@ -116,7 +116,7 @@ export const CheckOutForm = styled.form`
     -webkit-animation: loading 2s infinite ease 1.5s;
     animation: loading 2s infinite ease 1.5s;
   }
-  
+
   .spinner:after {
     width: 10.4px;
     height: 10.2px;
@@ -129,7 +129,7 @@ export const CheckOutForm = styled.form`
     -webkit-animation: loading 2s infinite ease;
     animation: loading 2s infinite ease;
   }
-  
+
   @keyframes loading {
     0% {
       -webkit-transform: rotate(0deg);
@@ -140,11 +140,10 @@ export const CheckOutForm = styled.form`
       transform: rotate(360deg);
     }
   }
-  
+
   @media only screen and (max-width: 600px) {
     form {
       width: 80vw;
     }
   }
-
 `

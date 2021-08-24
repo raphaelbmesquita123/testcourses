@@ -1,80 +1,78 @@
 import React from 'react'
-import { GlobalStyle } from './styles/global'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+// styles
+import { GlobalStyle } from './styles/global'
 import { ContainerMessage, FooterContainer } from './styles/styles'
-import { FaFacebook, FaInstagram } from "react-icons/fa";
 
-//COMPONENTS
-import { NavBar } from './components/NavBar/NavBar'
+//pages
+import { HomePage } from './pages/HomePage'
+import { UserPage } from './pages/UserPage'
+import { WhyPage } from './pages/WhyPage/'
+import { CoursePage } from './pages/CoursePage'
+import { CourseDescriptionPage } from './pages/CourseDescriptionPage'
 
-//REACT-TOASTIFY
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+//components
+import { NavBar } from './components/NavBar'
 
-//PAGES
-import { HomePage } from './pages/HomePage/HomePage';
-import { UserPage } from './pages/UserPage/UserPage';
-import { WhyPage } from './pages/WhyPage/WhyPage';
-import { CoursePage } from './pages/CoursePage/CoursePage';
-
-//PROVIDERS
-import { UserProvider } from './context/UserContext/UserContext';
-import { BasketProvider } from './context/BasketContext/BasketContext';
+//providers
+import { UserProvider } from './context/UserContext'
+import { BasketProvider } from './context/BasketContext'
 
 
 function App() {
   return (
     <UserProvider>
-    <BasketProvider>
+      <BasketProvider>
         <BrowserRouter>
-            <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              />
+          <ToastContainer
+            position='bottom-right'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
 
-            <GlobalStyle/>
-            <ContainerMessage>
-              <h1>
-                BE PREPARED FOR THE LABOR MARKET
-              </h1>
-            </ContainerMessage>
+          <GlobalStyle />
+          <ContainerMessage>
+            <h1>Be prepered for the labor market</h1>
+          </ContainerMessage>
 
-            <NavBar />
+          <NavBar />
 
-            <Switch>
-              <Route exact path="/" component={HomePage}/>
-              <Route exact path="/WhyPage" component={WhyPage}/>
-              <Route exact path="/user/:id" component={UserPage}/>
-              <Route exact path="/course/:id" component={CoursePage}/>
-            </Switch>
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/WhyPage' component={WhyPage} />
+            <Route exact path='/user/:id' component={UserPage} />
+            <Route exact path='/course/:id' component={CoursePage} />
+            <Route exact path='/course/description/:id' component={CourseDescriptionPage} />
+          </Switch>
 
           <FooterContainer>
             <section>
-              <Link to='/'>
-                TESTCOURSES@GMAILCOM
-              </Link>
+              <Link to='/'>testcourse@gmail.com</Link>
               <div>
                 <Link to='/'>
-                  <FaFacebook/>
+                  <FaFacebook />
                 </Link>
                 <Link to='/'>
                   <FaInstagram />
                 </Link>
               </div>
-              <small>2021 TESTCOURSES ALL RIGHTS RESERVED</small>
+              <small>2021 testcourse all rights reserved</small>
             </section>
           </FooterContainer>
         </BrowserRouter>
-    </BasketProvider>
+      </BasketProvider>
     </UserProvider>
-  );
+  )
 }
 
-export default App;
+export default App

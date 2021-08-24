@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {
-  CardElement,
-  useStripe,
-  useElements
-} from "@stripe/react-stripe-js";
-import { CheckOutForm } from './stylesCheckOut'
-import { Basket } from '../../../context/BasketContext/BasketContext'
-import { User } from '../../../context/UserContext/UserContext'
-import { handleCourseAndUser } from "../../../services/addClientToCourse/addClientToCourse";
 import { toast } from "react-toastify";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+
+//styles
+import { CheckOutForm } from './styles'
+
+//services
+import { handleCourseAndUser } from "../../../services/addClientToCourse";
+
+//contexts
+import { User } from '../../../context/UserContext'
+import { Basket } from '../../../context/BasketContext'
 
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
