@@ -8,6 +8,8 @@ export function CourseContent({ content, loading }) {
     return (
       <>
         {content.map((item) => {
+          const descriptionText = item.description
+
           return (
             <Container key={item.id}>
               {
@@ -24,7 +26,7 @@ export function CourseContent({ content, loading }) {
                   <h3>{item.title}</h3>
                   <p 
                     dangerouslySetInnerHTML={{
-                      __html: item.description
+                      __html: descriptionText
                     }}
                     >
                     

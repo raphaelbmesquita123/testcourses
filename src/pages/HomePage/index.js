@@ -115,8 +115,10 @@ export function HomePage() {
                 return (
                   <CourseCard
                     key={course.id}
-                    image={process.env.REACT_APP_STRIPE_URL + course.image}
                     id={course.id}
+                    image={course.image}
+                    title={course.title}
+                    price={course.price}
                     payed={false}
                   />
                 )

@@ -14,12 +14,12 @@ export const Container = styled.div`
     padding: 0.5rem 0;
     color: var(--gray);
   }
-  p {
+  p{
     max-width: 1080px;
     padding: 1rem;
     background-color: var(--gray);
     letter-spacing: 1px;
-    /* text-align: justify; */
+    text-align: justify;
     max-height: 15rem;
     overflow: scroll;
 

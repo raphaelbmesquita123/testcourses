@@ -93,13 +93,12 @@ export function ProfessionalUser() {
           <div className='CoursesContainer'>
             {
               userCourses?.map((course) => {
+                console.log(course)
                 return (
                   <CourseCard
                     key={course.id}
-                    image={
-                      process.env.REACT_APP_STRIPE_URL + course.image[0].url
-                    }
                     id={course.id}
+                    image={course.image[0].url}
                     payed={true}
                   />
                 )
@@ -108,8 +107,6 @@ export function ProfessionalUser() {
           </div>
         ) : option === 2 ? (
           'OPCAO 2'
-        ) : option === 3 ? (
-          'd'
         ) : basket.length > 0 ? (
           <div className='basket'>
             {basket.map((course) => {

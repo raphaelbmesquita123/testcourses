@@ -60,7 +60,6 @@ export function CoursePage() {
   const contentLength = coursePlaying?.curriculum.length
 
   function handlePreviousPage() {
-    // setProgressValue(100 / currentPage)
     setCurrentPage(currentPage - 1)
     if (currentPage === 1) {
       setPreviousButtonDisbled(true)
@@ -68,7 +67,6 @@ export function CoursePage() {
   }
 
   function handleNextPage() {
-    // setProgressValue(100 / currentPage)
     setCurrentPage(currentPage + 1)
   }
 

@@ -30,12 +30,13 @@ export function BasketProvider({ children }) {
       })
       .then((response) => {
         const { data } = response
-        const dataToBasket = data.map((item) => {
+        const dataToBasket = data.map((course) => {
           return {
-            id: item.id,
-            price: item.price,
-            image: item.image[0].url,
-            payed_clients: item.payed_clients,
+            id: course.id,
+            title: course.title,
+            price: course.price,
+            image: course.image[0].url,
+            payed_clients: course.payed_clients,
           }
         })
         setCourses(dataToBasket)
@@ -52,8 +53,13 @@ export function BasketProvider({ children }) {
     })
 
     try {
+      const splitClients = data.payed_clients.split(' ')
+      const hasClientBought =  splitClients.includes(user.user.email)
+      if (hasClientBought){
+        toast.info('You already bought this course')
+      }
       const hasCourseOnBaket = basket.find((course) => course.id === data.id)
-
+      
       if (!hasCourseOnBaket) {
         const splitClients = data.payed_clients.split(' ')
         const isUserPayed = splitClients.includes(user.user.email)
@@ -65,8 +71,6 @@ export function BasketProvider({ children }) {
             JSON.stringify([...basket, data])
           )
         }
-
-        toast.info('You already bought this course')
       }
     } catch (err) {
       console.log(err)

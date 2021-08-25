@@ -9,7 +9,7 @@ import { CardContainer, BuyPlayButton } from './styles'
 import { User } from '../../context/UserContext'
 import { Basket } from '../../context/BasketContext'
 
-export function CourseCard({ image, id, payed }) {
+export function CourseCard({ id, payed, image, title, price }) {
   const { addToBasket } = Basket()
   const { user } = User()
 
@@ -23,7 +23,7 @@ export function CourseCard({ image, id, payed }) {
 
   return (
     <CardContainer>
-      <img src={image} alt='kp course' />
+      <img src={ process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
 
       {payed ? (
         <Link to={`/course/${id}`}>
@@ -34,13 +34,13 @@ export function CourseCard({ image, id, payed }) {
       ) : (
         <>
           <Link to={`/course/description/${id}`}>
-            <span>MORE INFORMATIONS</span>
+            <span>{title}</span>
           </Link>
           <BuyPlayButton
             backgroundColor='var(--blue-900)'
             onClick={() => handleAddToBasket(id)}
           >
-            <p>30E ADD TO BASKET</p>
+            <p>{price}E ADD TO BASKET</p>
           </BuyPlayButton>
         </>
       )}
