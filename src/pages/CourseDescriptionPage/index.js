@@ -35,11 +35,10 @@ export function CourseDescriptionPage() {
     getCourses()
   }, [id])
 
-  console.log(course)
+
   return (
     <Container>
-        <h1>{course?.title}</h1>
-        <h2>{course?.description}</h2>
+        <div dangerouslySetInnerHTML={{__html: JSON.stringify(course?.description)}}></div>
     </Container>
   )
 }

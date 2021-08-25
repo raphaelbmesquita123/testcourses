@@ -14,7 +14,7 @@ import { Basket } from '../../../context/BasketContext'
 
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState('');
@@ -76,7 +76,7 @@ export default function CheckoutForm() {
 
   const handleChange = async (event) => {
     setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
+    // setError(event.error ? event.error.message : "");
   };
 
   const handleSubmit = async ev => {
@@ -91,12 +91,12 @@ export default function CheckoutForm() {
 
     if (payload.error) {
       toast.error(payload.error.message)
-      setError(`Payment failed ${payload.error.message}`);
+      // setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
       toast.success('Your payment has been successfully')
       handleCourseAndUser(itensToBasket, userToCheckout)
-      setError(null);
+      // setError(null);
       setProcessing(false);
       setSucceeded(true);
       cleanBasket()

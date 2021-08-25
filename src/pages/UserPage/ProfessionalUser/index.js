@@ -27,7 +27,7 @@ export function ProfessionalUser() {
   function handleDeletItem(id) {
     deletItem(id)
   }
-
+ 
   useEffect(() => {
     function getCourses() {
       api
@@ -93,7 +93,6 @@ export function ProfessionalUser() {
           <div className='CoursesContainer'>
             {
               userCourses?.map((course) => {
-                console.log(course)
                 return (
                   <CourseCard
                     key={course.id}

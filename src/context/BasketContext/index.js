@@ -59,7 +59,10 @@ export function BasketProvider({ children }) {
         toast.info('You already bought this course')
       }
       const hasCourseOnBaket = basket.find((course) => course.id === data.id)
-      
+      if(hasCourseOnBaket){
+        toast.info('You already have this course in your basket')
+
+      }
       if (!hasCourseOnBaket) {
         const splitClients = data.payed_clients.split(' ')
         const isUserPayed = splitClients.includes(user.user.email)
