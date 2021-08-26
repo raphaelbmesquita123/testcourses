@@ -3,35 +3,35 @@ import { useHistory, useParams } from 'react-router-dom'
 import ProgressBar from '@ramonak/react-progress-bar'
 
 //styles
-import { Container } from './styles'
+import { Container, ProgressBarContainer } from './styles'
 
 //services
 import { api } from '../../services/api'
+import { handleAddClientToClientCertificate } from '../../services/addClientToClientCertificate'
 
 //context
 import { User } from '../../context/UserContext'
 import { CourseContent } from '../../components/CourseContent'
+import { handleSendErr } from '../../services/sendError'
 
 export function CoursePage() {
   const { id } = useParams()
   const { user } = User()
   const [coursePlaying, setCoursePlaying] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-
   const [currentPage, setCurrentPage] = useState(() => {
     const localStore = localStorage.getItem(`${id}-Page:`)
-    if(localStore){
+    if (localStore) {
       return JSON.parse(localStore)
     }
     return 1
   })
-  const [contentPerPage] = useState(1)
-  
-  const [ previousButtonDisbled, setPreviousButtonDisbled ] = useState(true)
-  const [ nextButtonDisbled, setNextButtonDisbled ] = useState(true)
-  const [ progressValue, setProgressValue] = useState(100)
 
-  
+  const [contentPerPage] = useState(1)
+  const [previousButtonDisbled, setPreviousButtonDisbled] = useState(true)
+  const [nextButtonDisbled, setNextButtonDisbled] = useState(true)
+  const [progressValue, setProgressValue] = useState(100)
+
   // Get corrent video
   const indexOfLastContent = currentPage * contentPerPage
   const indexOfFistContent = indexOfLastContent - contentPerPage
@@ -40,7 +40,7 @@ export function CoursePage() {
     indexOfLastContent
   )
   const contentLength = coursePlaying?.curriculum.length
-  
+
   const history = useHistory()
   if (!user) {
     history.push('/')
@@ -48,8 +48,8 @@ export function CoursePage() {
 
   //fetching the course
   useEffect(() => {
-    function getCourses() {
-      api
+    async function getCourses() {
+      await api
         .get(`/courses/${id}`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
@@ -64,48 +64,58 @@ export function CoursePage() {
             setIsLoading(false)
           }
         })
-        .catch((error) => console.log(error))
+        .catch((err) => handleSendErr(err))
     }
     getCourses()
-  }, [user])
+  }, [user, id])
 
   useEffect(() => {
     //Progress bar
-    setProgressValue(0)
-    if(coursePlaying){
-      const progressContent = 100 / contentLength
-      const percent = currentPage * progressContent
-      setProgressValue(Number(percent.toFixed(0)))
-    }
-    
+    const progressContent = 100 / contentLength
+    const percent = currentPage * progressContent
+    setProgressValue(Number(percent.toFixed(0)))
+
     //storage the page that the client stop for the last time
-    localStorage.setItem(
-      `${id}-Page:`,
-      JSON.stringify(currentPage)
-      )
-      
+    localStorage.setItem(`${id}-Page:`, JSON.stringify(currentPage))
+
     //handle disable button, so the client have to wait at least 15s in each page before go to the next
     setPreviousButtonDisbled(true)
     setNextButtonDisbled(true)
 
-    setTimeout(
-      function() {
-        setPreviousButtonDisbled(false)
-        setNextButtonDisbled(false)
-        if(currentPage === 1) {
-          setPreviousButtonDisbled(true)
-        }
-        if(currentPage === contentLength){
-          setNextButtonDisbled(true)
-        }
-      },
-      1500);
-  }, [currentPage])
+    setTimeout(function () {
+      setPreviousButtonDisbled(false)
+      setNextButtonDisbled(false)
+      if (currentPage === 1) {
+        setPreviousButtonDisbled(true)
+      }
+      if (currentPage === contentLength) {
+        setNextButtonDisbled(true)
+      }
+    }, 1500)
+  }, [currentPage, coursePlaying, contentLength, id])
 
-
+  function handleCertificateSubmition() {
+    handleAddClientToClientCertificate(coursePlaying, user.user.email)
+    history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
+    setTimeout(() => {
+      window.location.reload();
+    }, 2500)
+  }
   return (
     <Container>
-      <h1>{coursePlaying?.title}</h1>
+      <section>
+        <h1>{coursePlaying?.title}</h1>
+        {currentPage === contentLength && (
+          <button
+            onClick={() =>
+              handleCertificateSubmition()
+            }
+          >
+            {' '}
+            Certificate{' '}
+          </button>
+        )}
+      </section>
       <div>
         <CourseContent loading={isLoading} content={currentContent} />
         <section>
@@ -126,13 +136,13 @@ export function CoursePage() {
         </section>
       </div>
 
-      <section className='progressbar'>
+      <ProgressBarContainer>
         <ProgressBar
           bgColor='var(--blue-100)'
           height='30px'
           completed={progressValue === 0 ? '' : progressValue}
         />
-      </section>
+      </ProgressBarContainer>
     </Container>
   )
 }

@@ -12,7 +12,7 @@ import { SignUpContainer, SignUpModal, SignUpModalContainer } from './styles'
 
 //services
 import { api } from '../../../services/api'
-
+import { handleSendErr } from '../../../services/sendError'
 
 const customStyles = {
   content: {
@@ -81,7 +81,7 @@ export function SignUpButton() {
       setIsOpen(false)
       toast.success('Account Created Successfully')
     } catch (err) {
-      console.log(err)
+      handleSendErr(err)
     }
   }
 

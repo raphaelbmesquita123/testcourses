@@ -9,6 +9,7 @@ import { LoginButtonContainer, LoginContainer} from './styles'
 
 //services
 import { api } from '../../../services/api'
+import { handleSendErr } from '../../../services/sendError'
 
 //context
 import { User } from '../../../context/UserContext'
@@ -74,7 +75,7 @@ export function LoginButton() {
           }
         })
     } catch (err) {
-      console.log(err)
+      handleSendErr(err)
     }
   }
   return (

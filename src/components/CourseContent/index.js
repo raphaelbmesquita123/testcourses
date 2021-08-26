@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './styles'
+import { Container, TextContainer } from './styles'
 
 export function CourseContent({ content, loading }) {
   if (loading) {
@@ -12,27 +12,27 @@ export function CourseContent({ content, loading }) {
 
           return (
             <Container key={item.id}>
-              {
-                item.url === undefined ?
+              {item.url === undefined ? (
                 <>
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <TextContainer height='25rem'>
+                    {item.description}
+                  </TextContainer>
                 </>
-                :
+              ) : (
                 <>
                   <video controls>
                     <source src={item.url} />
                   </video>
                   <h3>{item.title}</h3>
-                  <p 
+                  <TextContainer
+                    height='auto'
                     dangerouslySetInnerHTML={{
-                      __html: descriptionText
+                      __html: descriptionText,
                     }}
-                    >
-                    
-                  </p>
+                  ></TextContainer>
                 </>
-              }
+              )}
             </Container>
           )
         })}

@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 
 //services
 import { api } from '../../services/api'
+import { handleSendErr } from '../../services/sendError'
 
 //context
 import { User } from '../UserContext'
@@ -42,7 +43,7 @@ export function BasketProvider({ children }) {
         setCourses(dataToBasket)
         setIsLoading(false)
       })
-      .catch((error) => console.log(error))
+      .catch((err) => handleSendErr(err))
   }, [])
 
   async function addToBasket(id) {
@@ -76,7 +77,7 @@ export function BasketProvider({ children }) {
         }
       }
     } catch (err) {
-      console.log(err)
+      handleSendErr(err)
     }
   }
 

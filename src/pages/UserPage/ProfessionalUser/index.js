@@ -4,11 +4,12 @@ import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
 //components
+import { CertificateCard } from '../../../components/CertificateCard'
 import { CourseCard } from '../../../components/CourseCard'
 import CheckoutForm from '../CheckoutForm'
 
 //styles
-import { Container, ItemBasket } from './styles'
+import { Container, ItemBasket, CoursesContainer, CertificatesContainer } from './styles'
 
 //contexts
 import { User } from '../../../context/UserContext'
@@ -16,6 +17,7 @@ import { Basket } from '../../../context/BasketContext'
 
 //services
 import { api } from '../../../services/api'
+import { handleSendErr } from '../../../services/sendError'
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
 
@@ -27,10 +29,10 @@ export function ProfessionalUser() {
   function handleDeletItem(id) {
     deletItem(id)
   }
- 
+
   useEffect(() => {
-    function getCourses() {
-      api
+    async function getCourses() {
+      await api
         .get('/courses', {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
@@ -48,10 +50,10 @@ export function ProfessionalUser() {
           }
           handleUserCourses(payedCourses)
         })
-        .catch((error) => console.log(error))
+        .catch((err) => handleSendErr(err))
     }
     getCourses()
-  }, [user])
+  }, [user, handleUserCourses])
 
   return (
     <Container>
@@ -90,22 +92,22 @@ export function ProfessionalUser() {
       </main>
       <section>
         {option === 1 ? (
-          <div className='CoursesContainer'>
-            {
-              userCourses?.map((course) => {
-                return (
-                  <CourseCard
-                    key={course.id}
-                    id={course.id}
-                    image={course.image[0].url}
-                    payed={true}
-                  />
-                )
-              })
-            }
-          </div>
+          <CoursesContainer>
+            {userCourses?.map((course) => {
+              return (
+                <CourseCard
+                  key={course.id}
+                  id={course.id}
+                  image={course.image[0].url}
+                  payed={true}
+                />
+              )
+            })}
+          </CoursesContainer>
         ) : option === 2 ? (
-          'OPCAO 2'
+          <CertificatesContainer>
+            <CertificateCard />
+          </CertificatesContainer>
         ) : basket.length > 0 ? (
           <div className='basket'>
             {basket.map((course) => {

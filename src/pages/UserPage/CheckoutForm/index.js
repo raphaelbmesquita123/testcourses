@@ -6,7 +6,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { CheckOutForm } from './styles'
 
 //services
-import { handleCourseAndUser } from "../../../services/addClientToCourse";
+import { handleAddCLientToPayedClients } from '../../../services/addClientToPayedClients';
 
 //contexts
 import { User } from '../../../context/UserContext'
@@ -53,8 +53,7 @@ export default function CheckoutForm() {
       .then(data => {
         setClientSecret(data.clientSecret);
       });
-
-  }, []);
+  }, [itensToBasket]);
 
   const cardStyle = {
     style: {
@@ -95,11 +94,14 @@ export default function CheckoutForm() {
       setProcessing(false);
     } else {
       toast.success('Your payment has been successfully')
-      handleCourseAndUser(itensToBasket, userToCheckout)
+      handleAddCLientToPayedClients(itensToBasket, userToCheckout)
       // setError(null);
       setProcessing(false);
       setSucceeded(true);
       cleanBasket()
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500)
     }
     
   };

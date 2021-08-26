@@ -6,7 +6,7 @@ import { Container } from './styles'
 
 //services
 import { api } from '../../services/api'
-
+import { handleSendErr } from '../../services/sendError'
 
 export function CourseDescriptionPage() {
   const { id } = useParams()
@@ -14,8 +14,8 @@ export function CourseDescriptionPage() {
 
 
   useEffect(() => {
-    function getCourses() {
-      api
+    async function getCourses() {
+      await api
         .get(`/courses/${id}`, {
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
@@ -30,7 +30,7 @@ export function CourseDescriptionPage() {
               description: data.description,
           })
         })
-        .catch((error) => console.log(error))
+        .catch((err) => handleSendErr(err))
     }
     getCourses()
   }, [id])

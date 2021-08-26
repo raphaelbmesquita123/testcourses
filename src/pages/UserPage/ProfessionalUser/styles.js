@@ -39,6 +39,8 @@ export const Container = styled.div`
     padding: 3rem 2rem;
 
     .basket {
+      min-height: calc(100vh - 300px); 
+      margin-top: 1rem;
       button {
         padding: 0.5rem;
         margin-top: 1rem;
@@ -121,27 +123,37 @@ export const Container = styled.div`
         opacity: 0.8;
       }
     }
-
-    .CoursesContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
   }
 `
+
+export const CoursesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 300px); 
+`
+
+export const CertificatesContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  min-height: calc(100vh - 300px); 
+`
+
 
 export const ItemBasket = styled.div`
   display: flex;
   justify-content: space-between;
   width: 60vw;
   min-width: 350px;
-  padding: 1rem;
+  padding: 1.5rem;
   background: var(--gray);
   color: var(--blue-900);
   box-shadow: -5px 10px 10px var(--blue-500);
   border-top: 1px solid var(--blue-100);
   margin-top: 0.4rem;
+  
   &:first-child {
     margin-top: 0rem;
   }

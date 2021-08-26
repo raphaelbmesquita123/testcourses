@@ -1,6 +1,8 @@
+// services
 import { api } from '../api'
+import { handleSendErr } from '../sendError'
 
-export async function handleCourseAndUser (course, user){
+export async function handleAddCLientToPayedClients (course, user){
     if( course.length === 1 ){
         try{
             const { data } = await api.get(`/courses/${course[0].id}`,
@@ -26,7 +28,7 @@ export async function handleCourseAndUser (course, user){
             )
 
         } catch(err){
-            console.log(err)
+            handleSendErr(err)
         }
     } 
     else{

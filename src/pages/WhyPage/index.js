@@ -8,6 +8,9 @@ import { FAQ } from '../../components/FAQ'
 // styles
 import { Container } from './styles'
 
+//services
+import { handleSendErr } from '../../services/sendError'
+
 export function WhyPage() {
   function sendEmail(e) {
     e.preventDefault()
@@ -23,8 +26,8 @@ export function WhyPage() {
           toast.success('You message was sent')
           console.log(result.text)
         },
-        (error) => {
-          console.log(error.text)
+        (err) => {
+          handleSendErr(err)
         }
       )
   }

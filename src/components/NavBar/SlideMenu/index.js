@@ -26,7 +26,7 @@ export function SlideMenu() {
           <Link to='/' onClick={() => setSlideOpen(false)}>
             <li>Home</li>
           </Link>
-          <Link href='/WhyPage' onClick={() => setSlideOpen(false)}>
+          <Link to='/WhyPage' onClick={() => setSlideOpen(false)}>
             <li>Why testCourses?</li>
           </Link>
         </ul>

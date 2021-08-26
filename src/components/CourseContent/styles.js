@@ -14,18 +14,20 @@ export const Container = styled.div`
     padding: 0.5rem 0;
     color: var(--gray);
   }
-  p{
-    max-width: 1080px;
-    padding: 1rem;
-    background-color: var(--gray);
-    letter-spacing: 1px;
-    text-align: justify;
-    max-height: 15rem;
-    overflow: scroll;
+`
 
-    @media (max-width: 600px) {
+export const TextContainer = styled.p`
+  max-width: 1080px;
+  padding: 1rem;
+  background-color: var(--gray);
+  letter-spacing: 1px;
+  text-align: justify;
+  height: ${(props) => props.height};
+  /* max-height: 15rem; */
+  overflow: scroll;
+
+  @media (max-width: 600px) {
       max-height: 20rem;
       overflow: scroll;
     }
-  }
 `

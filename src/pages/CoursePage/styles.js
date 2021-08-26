@@ -12,10 +12,30 @@ export const Container = styled.div`
   @media (max-width: 600px) {
     padding: 2rem;
   }
+  section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1080px;
+    margin-bottom: 1rem;
+    h1 {
+      /* margin: 0 auto 2rem auto; */
+      font-size: 2rem;
+      color: var(--gray);
+    }
+    button{
+      padding: 1rem;
+      border: none;
+      background-color: red;
+      color: white;
+      border-radius: 0.5rem;
+      box-shadow: -2px 2px 5px var(--blue-900);
+      &:active {
+        transform: scale(0.98);
+      }
+    }
 
-  h1 {
-    margin: 0 auto 2rem auto;
-    color: var(--gray);
   }
   div {
     display: flex;
@@ -30,6 +50,7 @@ export const Container = styled.div`
         border: none;
         text-transform: uppercase;
         background: var(--gray);
+        color: black;
 
         &:disabled {
           opacity: 0.5;
@@ -37,8 +58,17 @@ export const Container = styled.div`
       }
     }
   }
+
   .progressbar {
     width: 100%;
-    margin-top: 1rem;
+    max-width: 1080px;
+    margin: 1rem auto 0 auto;
   }
+`
+
+
+export const ProgressBarContainer = styled.div`
+    width: 100%;
+    max-width: 1080px;
+    margin: 1rem auto 0 auto;
 `
