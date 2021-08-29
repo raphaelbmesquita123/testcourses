@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
+import { jsPDF } from "jspdf";
 
 //components
 import { CertificateCard } from '../../../components/CertificateCard'
@@ -22,13 +23,38 @@ import { handleSendErr } from '../../../services/sendError'
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
 
 export function ProfessionalUser() {
-  const [option, setOption] = useState(1)
-  const { user, handleUserCourses, userCourses } = User()
+  const { user, handleUserCourses, userCourses, userPageOption, handleUserPageOption } = User()
   const { basket, deletItem } = Basket()
 
   function handleDeletItem(id) {
     deletItem(id)
   }
+
+  function hadlerPageOption(num){
+    handleUserPageOption(num)
+  }
+
+  function jsPdfGenerator (course, user){
+    var doc = new jsPDF({
+      orientation: 'landscape',
+      unit: 'mm',
+      format: [210 , 297]
+    })
+
+    doc.addImage('/certificateTest.jpg', "JPEG", 0, 0, 297, 210 );
+
+    
+    doc.setFontSize(40);
+    doc.setTextColor(255,255,255);
+    doc.text(`${course.title}`, 148, 30, null, null, "center");
+    
+    doc.setFontSize(40);
+    doc.setTextColor(255,255,255);
+    doc.text(`${user.user.firstName} ${user.user.lastName}`, 148, 135, null, null, "center");
+    
+    doc.save()
+  }
+
 
   useEffect(() => {
     async function getCourses() {
@@ -53,7 +79,7 @@ export function ProfessionalUser() {
         .catch((err) => handleSendErr(err))
     }
     getCourses()
-  }, [user, handleUserCourses])
+  }, [user])
 
   return (
     <Container>
@@ -63,26 +89,26 @@ export function ProfessionalUser() {
       <main>
         <div
           style={{
-            background: option === 1 ? 'var(--blue-100)' : 'var(--blue-500)',
+            background: userPageOption === 1 ? 'var(--blue-100)' : 'var(--blue-500)',
           }}
-          onClick={() => setOption(1)}
+          onClick={() => hadlerPageOption(1)}
         >
           <p>Your Courses</p>
         </div>
         <div
           style={{
-            background: option === 2 ? 'var(--blue-100)' : 'var(--blue-500)',
+            background: userPageOption === 2 ? 'var(--blue-100)' : 'var(--blue-500)',
           }}
-          onClick={() => setOption(2)}
+          onClick={() => hadlerPageOption(2)}
         >
           <p>Certificates</p>
         </div>
         {basket.length > 0 ? (
           <div
             style={{
-              background: option === 4 ? 'var(--blue-100)' : 'var(--blue-500)',
+              background: userPageOption === 3 ? 'var(--blue-100)' : 'var(--blue-500)',
             }}
-            onClick={() => setOption(4)}
+            onClick={() => hadlerPageOption(3)}
           >
             <p>Basket</p>
           </div>
@@ -91,7 +117,7 @@ export function ProfessionalUser() {
         )}
       </main>
       <section>
-        {option === 1 ? (
+        {userPageOption === 1 ? (
           <CoursesContainer>
             {userCourses?.map((course) => {
               return (
@@ -104,9 +130,23 @@ export function ProfessionalUser() {
               )
             })}
           </CoursesContainer>
-        ) : option === 2 ? (
+        ) : userPageOption === 2 ? (
           <CertificatesContainer>
-            <CertificateCard />
+            {
+              userCourses?.map((course) => {
+                const clients_certificated_array = course.clients_certificate.split(' ')
+                const isClientCertificated = clients_certificated_array.includes(user?.user.email)
+                if(isClientCertificated){
+                  return (
+                    <div>
+                      <CertificateCard user={user} course={course}/>
+                      <button onClick={() => jsPdfGenerator(course, user)}>DOWNLOAD</button>
+                    </div>
+                  )
+                }
+              })
+            }
+            
           </CertificatesContainer>
         ) : basket.length > 0 ? (
           <div className='basket'>

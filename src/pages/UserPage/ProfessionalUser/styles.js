@@ -134,11 +134,29 @@ export const CoursesContainer = styled.div`
 `
 
 export const CertificatesContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1rem;
   min-height: calc(100vh - 300px); 
+  div{
+    position: relative;
+    margin: 1rem;
+    
+    button{
+      position: absolute;
+      top: 15rem;
+      padding: 0.5rem;
+      border: none;
+      background: var(--gray);
+      color: var(--blue-500);
+      border-radius: 6px;
+
+      &:active{
+        transform: scale(0.98);
+      }
+    }
+  }
 `
 
 

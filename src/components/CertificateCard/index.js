@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react'
-
-
+import React from 'react'
 
 //styles
 import { Container } from './styles'
 
-export function CertificateCard() {
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
-
-    function onDocumentLoadSuccess({ numPages }) {
-        setNumPages(numPages);
-      }
+export function CertificateCard({course, user}) {
     
     return (
-        <div>
-            
-        </div>
+        <Container>
+            <img src="/certificateTest.png" alt="certificate" />
+            <h1>{course.title}</h1>
+            <h3>{user.user.firstName} {user.user.lastName}</h3>
+        </Container>
     )
 }

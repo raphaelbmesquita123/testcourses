@@ -10,8 +10,7 @@ export const Container = styled.div`
     align-items: flex-end;
     margin-right: 0.8rem;
 
-    p,
-    a {
+    div, p{
       position: relative;
       text-transform: uppercase;
       font-size: 0.8rem;
@@ -19,6 +18,8 @@ export const Container = styled.div`
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
+      margin: 0;
+
       span {
         position: absolute;
         background: red;

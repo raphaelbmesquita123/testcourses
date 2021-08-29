@@ -13,7 +13,7 @@ import { Basket } from '../../../context/BasketContext'
 
 export function UserLogged() {
   const { basket } = Basket()
-  const { userLogOut, user } = User()
+  const { userLogOut, user, handleUserPageOption } = User()
   const history = useHistory()
 
   function handleUserLogOut() {
@@ -22,12 +22,22 @@ export function UserLogged() {
     toast.success('You were log out')
   }
 
+  function handleBaskePageOption(){
+    if(basket.length > 0){
+      history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
+      handleUserPageOption(3)
+    } else {
+      history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
+    }
+  }
+
+
   return (
     <Container>
       <div>
-        <Link to={`/user/${user?.user.firstName + user?.user.lastName}`}>
+        <div onClick={() => handleBaskePageOption()}>
           {basket.length === 0 ? '' : <span>{basket.length}</span>} Basket
-        </Link>
+        </div>
         <p onClick={handleUserLogOut}>Log out</p>
       </div>
       <Link to={`/user/${user?.user.firstName + user?.user.lastName}`}>

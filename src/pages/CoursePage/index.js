@@ -100,6 +100,7 @@ export function CoursePage() {
     setTimeout(() => {
       window.location.reload();
     }, 2500)
+    localStorage.removeItem(`${id}-Page:`)
   }
   return (
     <Container>

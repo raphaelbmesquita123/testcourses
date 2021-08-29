@@ -11,6 +11,7 @@ export function UserProvider({ children }) {
     return null
   })
   const [userCourses, setUserCourses] = useState([])
+  const [userPageOption, setUserPageOption] = useState(1)
 
   function userLogOut() {
     setUser(null)
@@ -26,14 +27,20 @@ export function UserProvider({ children }) {
     setUserCourses(courses)
   }
 
+  function handleUserPageOption(num) {
+    setUserPageOption(num)
+  }
+
   return (
     <UserContext.Provider
       value={{
         user,
         userCourses,
+        userPageOption,
         userLogOut,
         handleUserCourses,
         userLogIn,
+        handleUserPageOption,
       }}
     >
       {children}
