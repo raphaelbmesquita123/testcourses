@@ -58,23 +58,27 @@ export function LoginButton() {
         })
         .catch((error) => {
           // Handle error.
-          const { data } = error.response
-          if (data.error) {
-            if (
-              data.message[0].messages[0].message ===
-              'Identifier or password invalid.'
-            ) {
-              toast.error('E-mail or password incorrect')
-            } else if (
-              data.message[0].messages[0].id === 'Auth.form.error.confirmed'
-            ) {
-              toast.error('Confirm your email bedore continuing')
-            } else {
-              toast.error('E-mail or password incorrect')
+          if(error.message === 'Network Error'){
+            handleSendErr(error)
+          } else {
+            const { data } = error.response
+            if (data.error) {
+              if (
+                data.message[0].messages[0].message ===
+                'Identifier or password invalid.'
+              ) {
+                toast.error('E-mail or password incorrect')
+              } else if (
+                data.message[0].messages[0].id === 'Auth.form.error.confirmed'
+              ) {
+                toast.error('Confirm your email bedore continuing')
+              } else {
+                toast.error('E-mail or password incorrect')
+              }
             }
           }
         })
-    } catch (err) {
+      } catch (err) {
       handleSendErr(err)
     }
   }

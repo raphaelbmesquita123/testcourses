@@ -16,7 +16,7 @@ export function CourseContent({ content, loading }) {
                   <h3>{course.title}</h3>
                   <TextContainer height='25rem'>
                     <MarkdownView
-                        markdown={`${course?.description}`}
+                        markdown={`${course.description}`}
                         options={{ tables: true, emoji: true }}
                       />
                   </TextContainer>
@@ -29,7 +29,7 @@ export function CourseContent({ content, loading }) {
                   <h3>{course.title}</h3>
                   <TextContainer height='15rem'>
                     <MarkdownView
-                      markdown={`${course?.description}`}
+                      markdown={`${course.description}`}
                       options={{ tables: true, emoji: true }}
                     />
                   </TextContainer>

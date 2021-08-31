@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-import { jsPDF } from "jspdf";
+import { jsPDF } from 'jspdf'
 
 //components
 import { CertificateCard } from '../../../components/CertificateCard'
@@ -10,7 +10,12 @@ import { CourseCard } from '../../../components/CourseCard'
 import CheckoutForm from '../CheckoutForm'
 
 //styles
-import { Container, ItemBasket, CoursesContainer, CertificatesContainer } from './styles'
+import {
+  Container,
+  ItemBasket,
+  CoursesContainer,
+  CertificatesContainer,
+} from './styles'
 
 //contexts
 import { User } from '../../../context/UserContext'
@@ -23,38 +28,49 @@ import { handleSendErr } from '../../../services/sendError'
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
 
 export function ProfessionalUser() {
-  const { user, handleUserCourses, userCourses, userPageOption, handleUserPageOption } = User()
+  const {
+    user,
+    handleUserCourses,
+    userCourses,
+    userPageOption,
+    handleUserPageOption,
+  } = User()
   const { basket, deletItem } = Basket()
 
   function handleDeletItem(id) {
     deletItem(id)
   }
 
-  function hadlerPageOption(num){
+  function hadlerPageOption(num) {
     handleUserPageOption(num)
   }
 
-  function jsPdfGenerator (course, user){
+  function jsPdfGenerator(course, user) {
     var doc = new jsPDF({
       orientation: 'landscape',
       unit: 'mm',
-      format: [210 , 297]
+      format: [210, 297],
     })
 
-    doc.addImage('/certificateTest.jpg', "JPEG", 0, 0, 297, 210 );
+    doc.addImage('/certificateTest.jpg', 'JPEG', 0, 0, 297, 210)
 
-    
-    doc.setFontSize(40);
-    doc.setTextColor(255,255,255);
-    doc.text(`${course.title}`, 148, 30, null, null, "center");
-    
-    doc.setFontSize(40);
-    doc.setTextColor(255,255,255);
-    doc.text(`${user.user.firstName} ${user.user.lastName}`, 148, 135, null, null, "center");
-    
+    doc.setFontSize(40)
+    doc.setTextColor(255, 255, 255)
+    doc.text(`${course.title}`, 148, 30, null, null, 'center')
+
+    doc.setFontSize(40)
+    doc.setTextColor(255, 255, 255)
+    doc.text(
+      `${user.user.firstName} ${user.user.lastName}`,
+      148,
+      135,
+      null,
+      null,
+      'center'
+    )
+
     doc.save()
   }
-
 
   useEffect(() => {
     async function getCourses() {
@@ -79,7 +95,7 @@ export function ProfessionalUser() {
         .catch((err) => handleSendErr(err))
     }
     getCourses()
-  }, [user])
+  }, [user, handleUserCourses])
 
   return (
     <Container>
@@ -89,7 +105,8 @@ export function ProfessionalUser() {
       <main>
         <div
           style={{
-            background: userPageOption === 1 ? 'var(--blue-100)' : 'var(--blue-500)',
+            background:
+              userPageOption === 1 ? 'var(--blue-100)' : 'var(--blue-500)',
           }}
           onClick={() => hadlerPageOption(1)}
         >
@@ -97,7 +114,8 @@ export function ProfessionalUser() {
         </div>
         <div
           style={{
-            background: userPageOption === 2 ? 'var(--blue-100)' : 'var(--blue-500)',
+            background:
+              userPageOption === 2 ? 'var(--blue-100)' : 'var(--blue-500)',
           }}
           onClick={() => hadlerPageOption(2)}
         >
@@ -106,7 +124,8 @@ export function ProfessionalUser() {
         {basket.length > 0 ? (
           <div
             style={{
-              background: userPageOption === 3 ? 'var(--blue-100)' : 'var(--blue-500)',
+              background:
+                userPageOption === 3 ? 'var(--blue-100)' : 'var(--blue-500)',
             }}
             onClick={() => hadlerPageOption(3)}
           >
@@ -132,21 +151,29 @@ export function ProfessionalUser() {
           </CoursesContainer>
         ) : userPageOption === 2 ? (
           <CertificatesContainer>
-            {
-              userCourses?.map((course) => {
-                const clients_certificated_array = course.clients_certificate.split(' ')
-                const isClientCertificated = clients_certificated_array.includes(user?.user.email)
-                if(isClientCertificated){
-                  return (
-                    <div>
-                      <CertificateCard user={user} course={course}/>
-                      <button onClick={() => jsPdfGenerator(course, user)}>DOWNLOAD</button>
-                    </div>
-                  )
-                }
-              })
-            }
-            
+            {userCourses?.map((course) => {
+              const clients_certificated_array =
+                course.clients_certificate.split(' ')
+              const isClientCertificated = clients_certificated_array.includes(
+                user?.user.email
+              )
+              if (isClientCertificated) {
+                return (
+                  <div>
+                    <CertificateCard
+                      key={course.id}
+                      user={user}
+                      course={course}
+                    />
+                    <button onClick={() => jsPdfGenerator(course, user)}>
+                      DOWNLOAD
+                    </button>
+                  </div>
+                )
+              } else {
+                return ''
+              }
+            })}
           </CertificatesContainer>
         ) : basket.length > 0 ? (
           <div className='basket'>

@@ -97,9 +97,6 @@ export function CoursePage() {
   function handleCertificateSubmition() {
     handleAddClientToClientCertificate(coursePlaying, user.user.email)
     history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
-    setTimeout(() => {
-      window.location.reload();
-    }, 2500)
     localStorage.removeItem(`${id}-Page:`)
   }
   return (

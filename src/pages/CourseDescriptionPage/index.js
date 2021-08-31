@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { CourseCard } from '../../components/CourseCard'
 import { useParams } from 'react-router-dom'
 import MarkdownView from 'react-showdown';
 
@@ -48,6 +49,13 @@ export function CourseDescriptionPage() {
             options={{ tables: true, emoji: true }}
           />
         </TextContainer>
+        <CourseCard
+          id={course?.id}
+          image={course?.image}
+          title={course?.title}
+          price={course?.price}
+          payed={false}
+        />
     </Container>
   )
 }

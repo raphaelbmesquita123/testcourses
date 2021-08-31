@@ -3,9 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   min-height: 100vh;
-
+  padding-bottom: 2rem;
   section {
     width: 100vw;
     height: 50vh;
@@ -39,8 +40,11 @@ export const Container = styled.div`
 `
 export const TextContainer = styled.p`
   max-width: 1080px;
+  margin: 0 auto;
+  text-align: justify;
   padding: 2rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   background-color: var(--gray);
   letter-spacing: 1px;
   

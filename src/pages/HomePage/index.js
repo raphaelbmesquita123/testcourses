@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown } from 'react-icons/fa'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -39,9 +39,12 @@ export function HomePage() {
         </div>
         <span>
           <h1>Become a certified professional!</h1>
-          <h3>Our mission is to train people who are looking to become a professional to facilitate their search in the job market</h3>
+          <h3>
+            Our mission is to train people who are looking to become a
+            professional to facilitate their search in the job market
+          </h3>
         </span>
-        <a href="#ourCourses">
+        <a href='#ourCourses'>
           <FaAngleDown />
         </a>
       </CarouselContainer>
@@ -56,7 +59,7 @@ export function HomePage() {
           <img src='./l3.png' alt='logo' />
         </Slider>
       </div>
-      <div className='ourCourses' id="ourCourses">
+      <div className='ourCourses' id='ourCourses'>
         <h1> Our courses </h1>
         <section>
           {isLoading

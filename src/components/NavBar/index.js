@@ -28,16 +28,16 @@ export function NavBar() {
       {width > 680 ? (
         <ul>
           <MenuButton
-            color={pathname === '/' && 'var(--white)'}
-            marginBottom={pathname === '/' && '4px solid var(--blue-500)'}
+            color={pathname === '/' ? 'var(--white)' : 'var(--blue-500)'}
+            marginBottom={pathname === '/' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
             href='/'
           >
             Home
           </MenuButton>
           <MenuButton
             href='/WhyPage'
-            color={pathname === '/WhyPage' && 'var(--white)'}
-            marginBottom={pathname === '/WhyPage' && '4px solid var(--blue-500)'}
+            color={pathname === '/WhyPage' ? 'var(--white)' : 'var(--blue-500)'}
+            marginBottom={pathname === '/WhyPage' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
           >
             Why testCourses?
           </MenuButton>

@@ -45,7 +45,6 @@ export const SlideContainer = styled.div`
 `
 
 export const SlideMenuButton = styled.a`
-  color: var(--blue-500);
   color: ${(props) => props.color};
   align-items: flex-start;
   padding: 2rem;

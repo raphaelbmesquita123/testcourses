@@ -23,7 +23,7 @@ export function CourseCard({ id, payed, image, title, price }) {
 
   return (
     <CardContainer>
-      <img src={ process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
+      <img src={process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
 
       {payed ? (
         <Link to={`/course/${id}`}>

@@ -16,13 +16,13 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
+    
     h3 {
       font-weight: bold;
       font-size: 1.3rem;
       color: var(--blue-500);
     }
-
+    
     small {
       font-size: 2rem;
       color: var(--blue-500);
@@ -30,14 +30,14 @@ export const Container = styled.div`
       margin-top: 0.5rem;
     }
   }
-
+  
   .answer {
     display: flex;
     justify-content: flex-start;
     padding-top: 2rem;
     color: var(--blue-100);
   }
-`
+  `
 
 export const AnswerContainer = styled.div`
     display: ${(value) => value.display};

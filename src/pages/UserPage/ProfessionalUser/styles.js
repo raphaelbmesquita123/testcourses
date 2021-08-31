@@ -14,6 +14,7 @@ export const Container = styled.div`
   main {
     display: flex;
     justify-content: space-around;
+    background-color: var(--blue-500);
 
     div {
       padding: 1rem;
@@ -22,6 +23,9 @@ export const Container = styled.div`
       background-color: var(--blue-100);
       color: var(--white);
       cursor: pointer;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
       p {
         text-transform: uppercase;
       }

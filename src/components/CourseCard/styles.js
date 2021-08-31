@@ -31,13 +31,13 @@ export const CardContainer = styled.div`
   }
 `
 export const BuyPlayButton = styled.div`
-    background-color: ${(props) => props.backgroundColor};
-    width: 100%;
-    p {
-      padding: 1rem 0;
-      color: var(--gray);
-      text-align: center;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
+  background-color: ${(props) => props.backgroundColor};
+  width: 100%;
+  p {
+    padding: 1rem 0;
+    color: var(--gray);
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
 `

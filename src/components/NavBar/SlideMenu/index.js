@@ -26,15 +26,15 @@ export function SlideMenu() {
         <ul>
           <SlideMenuButton 
             href='/' onClick={() => setSlideOpen(false)}
-            color={pathname === '/' && 'var(--white)'}
-            marginLeft={pathname === '/' && '4px solid var(--blue-500)'}
+            color={pathname === '/' ? 'var(--white)' : 'var(--blue-500)'}
+            marginLeft={pathname === '/' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
             >
             Home
           </SlideMenuButton>
           <SlideMenuButton 
             href='/WhyPage' onClick={() => setSlideOpen(false)}
-            color={pathname === '/WhyPage' && 'var(--white)'}
-            marginLeft={pathname === '/WhyPage' && '4px solid var(--blue-500)'}
+            color={pathname === '/WhyPage' ? 'var(--white)' : 'var(--blue-500)'}
+            marginLeft={pathname === '/WhyPage' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
             >
             Why testCourses?
           </SlideMenuButton>

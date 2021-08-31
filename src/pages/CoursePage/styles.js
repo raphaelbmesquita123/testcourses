@@ -20,10 +20,10 @@ export const Container = styled.div`
     max-width: 1080px;
     margin-bottom: 1rem;
     h1 {
-      /* margin: 0 auto 2rem auto; */
       font-size: 2rem;
       color: var(--gray);
     }
+
     button{
       padding: 1rem;
       border: none;
@@ -33,6 +33,10 @@ export const Container = styled.div`
       box-shadow: -2px 2px 5px var(--blue-900);
       &:active {
         transform: scale(0.98);
+      }
+
+      @media (max-width: 600px) {
+        padding: 0.5rem;
       }
     }
 

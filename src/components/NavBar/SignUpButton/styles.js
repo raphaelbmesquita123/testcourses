@@ -3,9 +3,11 @@ import styled from 'styled-components'
 export const SignUpContainer = styled.div`
   padding: 0.3rem 0.5rem;
   cursor: pointer;
-  background-color: var(--blue-500);
-  color: var(--gray);
+  background-color: var(--blue-50);
+  color: var(--blue-900);
   border-radius: 5px;
+  font-weight: 500;
+
   @media (max-width: 600px) {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;

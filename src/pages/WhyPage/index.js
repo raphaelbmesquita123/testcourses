@@ -74,7 +74,7 @@ export function WhyPage() {
         <h1>Faq</h1>
         <FAQ
           question='how long it takes to get my certificate?'
-          answer='as soon as you finish your course, the certificate will be available for download'
+          answer='as soon as you finish your course, the certificate will be '
         />
 
         <FAQ

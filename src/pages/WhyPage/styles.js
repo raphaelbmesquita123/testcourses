@@ -76,7 +76,6 @@ export const Container = styled.div`
         }
 
         @media (max-width: 600px) {
-          text-align: left;
           font-size: 3.2rem;
         }
       }
