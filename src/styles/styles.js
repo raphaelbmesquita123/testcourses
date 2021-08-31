@@ -1,30 +1,8 @@
 import styled from 'styled-components'
 
-export const ContainerMessage = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  background-color: var(--blue-500);
-  color: var(--white);
-  text-transform: uppercase;
-
-  h1 {
-    font-size: 1rem;
-    font-weight: normal;
-    letter-spacing: 2px;
-  }
-
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 0.7rem;
-    }
-  }
-`
-
 export const FooterContainer = styled.footer`
   width: 100%;
-  background-color: var(--blue-500);
+  background-color: var(--blue-900);
   padding: 0.8rem;
   text-transform: uppercase;
 
@@ -37,6 +15,7 @@ export const FooterContainer = styled.footer`
     font-size: 0.8rem;
     max-width: 1080px;
     margin: 0 auto;
+
     a {
       text-decoration: none;
       color: var(--gray);

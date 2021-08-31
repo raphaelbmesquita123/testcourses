@@ -14,7 +14,7 @@ export const Container = styled.div`
       position: relative;
       text-transform: uppercase;
       font-size: 0.8rem;
-      color: var(--blue-500);
+      color: var(--blue-50);
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
@@ -42,13 +42,15 @@ export const Container = styled.div`
   }
   a {
     text-decoration: none;
+
     section {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 40px;
       height: 40px;
-      border: 3px solid var(--blue-500);
+      border: 3px solid var(--blue-50);
+      color: var(--blue-50);
       border-radius: 100%;
       cursor: pointer;
       text-transform: uppercase;

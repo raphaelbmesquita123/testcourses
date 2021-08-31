@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, TextContainer } from './styles'
+import MarkdownView from 'react-showdown';
 
 export function CourseContent({ content, loading }) {
   if (loading) {
@@ -7,30 +8,31 @@ export function CourseContent({ content, loading }) {
   } else {
     return (
       <>
-        {content.map((item) => {
-          const descriptionText = item.description
-
+        {content.map((course) => {
           return (
-            <Container key={item.id}>
-              {item.url === undefined ? (
+            <Container key={course.id}>
+              {course.url === undefined ? (
                 <>
-                  <h3>{item.title}</h3>
+                  <h3>{course.title}</h3>
                   <TextContainer height='25rem'>
-                    {item.description}
+                    <MarkdownView
+                        markdown={`${course?.description}`}
+                        options={{ tables: true, emoji: true }}
+                      />
                   </TextContainer>
                 </>
               ) : (
                 <>
                   <video controls>
-                    <source src={item.url} />
+                    <source src={course.url} />
                   </video>
-                  <h3>{item.title}</h3>
-                  <TextContainer
-                    height='auto'
-                    dangerouslySetInnerHTML={{
-                      __html: descriptionText,
-                    }}
-                  ></TextContainer>
+                  <h3>{course.title}</h3>
+                  <TextContainer height='15rem'>
+                    <MarkdownView
+                      markdown={`${course?.description}`}
+                      options={{ tables: true, emoji: true }}
+                    />
+                  </TextContainer>
                 </>
               )}
             </Container>

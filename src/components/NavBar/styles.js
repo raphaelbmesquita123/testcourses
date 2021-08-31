@@ -5,30 +5,20 @@ export const ContainerNav = styled.nav`
   justify-content: space-around;
   align-items: center;
   padding: 0 1rem;
-  height: 3.5rem;
-  max-width: 1280px;
+  height: 4.5rem;
   margin: 0 auto;
+  background-color: var(--blue-900);
 
   img {
-    height: 1.5rem;
+    height: 1.3rem;
     width: auto;
-    cursor: pointer;
+    cursor: pointer;  
   }
 
   ul {
     display: flex;
     align-items: center;
     list-style: none;
-
-    a {
-      text-decoration: none;
-      margin-left: 1rem;
-      cursor: pointer;
-
-      &:nth-child(1) {
-        margin-left: 0;
-      }
-    }
   }
 
   div {
@@ -40,4 +30,24 @@ export const ContainerNav = styled.nav`
       height: 1rem;
     }
   }
+`
+
+export const MenuButton = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  padding:  1.5rem 1rem;
+  color: var(--blue-500);
+  color: ${props => props.color};
+  border-bottom: ${props => props.marginBottom};
+  transition: all 0.2s ease;
+  margin-left: 1rem;
+
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+
+  &:hover{
+    color: var(--white);
+  }
+    
 `

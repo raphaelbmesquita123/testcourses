@@ -21,9 +21,7 @@ export const TextContainer = styled.p`
   padding: 1rem;
   background-color: var(--gray);
   letter-spacing: 1px;
-  text-align: justify;
   height: ${(props) => props.height};
-  /* max-height: 15rem; */
   overflow: scroll;
 
   @media (max-width: 600px) {

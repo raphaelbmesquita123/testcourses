@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 //navbar components
 import { SlideMenu } from './SlideMenu'
@@ -8,7 +8,7 @@ import { SignUpButton } from './SignUpButton'
 import { UserLogged } from './UserLogged'
 
 //style
-import { ContainerNav } from './styles'
+import { ContainerNav, MenuButton } from './styles'
 
 //service
 import { useWindowSize } from '../../services/windowDimensions/windowDimensions'
@@ -19,26 +19,34 @@ import { User } from '../../context/UserContext'
 export function NavBar() {
   const { width } = useWindowSize()
   const { user } = User()
-
+  const { pathname }  = useLocation()
   return (
     <ContainerNav>
-      <Link to='/'>
+      <a href='/'>
         <img src='./testCourse.png' alt='topCourses Logo' />
-      </Link>
+      </a>
       {width > 680 ? (
         <ul>
-          <a href='/'>
-            <li>Home</li>
-          </a>
-          <a href='/WhyPage'>
-            <li>Why testCourses?</li>
-          </a>
+          <MenuButton
+            color={pathname === '/' && 'var(--white)'}
+            marginBottom={pathname === '/' && '4px solid var(--blue-500)'}
+            href='/'
+          >
+            Home
+          </MenuButton>
+          <MenuButton
+            href='/WhyPage'
+            color={pathname === '/WhyPage' && 'var(--white)'}
+            marginBottom={pathname === '/WhyPage' && '4px solid var(--blue-500)'}
+          >
+            Why testCourses?
+          </MenuButton>
         </ul>
       ) : (
         <SlideMenu />
       )}
 
-      { !user ? (
+      {!user ? (
         <div>
           <LoginButton />
           <SignUpButton />

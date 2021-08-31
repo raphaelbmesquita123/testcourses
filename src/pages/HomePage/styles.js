@@ -1,51 +1,103 @@
 import styled from 'styled-components'
 
 export const CarouselContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 4.5rem);
+  overflow: hidden;
+
   div {
-    position: relative;
-    height: calc(100vh - 5.5rem);
-
-    section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(./fromHome.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    div {
       position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--gray);
-      width: 1000px;
-
-      h2 {
-        font-size: 3rem;
-      }
-      p {
-        margin-top: 1rem;
-      }
-    }
-
-    img {
+      width: 100%;
       height: 100%;
+      background: rgb(2, 57, 83);
+      opacity: 0.85;
+    }
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    padding: 2rem;
+    animation: fadeIn 1s;
+
+    .fadeIn {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
-    @media (max-width: 600px) {
-      section {
-        width: 80%;
-        left: 50%;
-        transform: translateX(-50%);
-        h2 {
-          font-size: 2rem;
-        }
-        p {
-          margin-top: 1rem;
-          text-align: justify;
-        }
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gray);
+      text-align: center;
+      cursor: pointer;
+
+      @media (max-width: 600px) {
+        font-size: 3.2rem;
+      }
+    }
+
+    h3 {
+      margin-top: 1rem;
+      color: var(--blue-50);
+      text-align: center;
+      max-width: 600px;
+
+      @media (max-width: 600px) {
+        font-size: 0.8rem;
       }
     }
   }
-`
 
+  a {
+    color: var(--blue-50);
+    position: absolute;
+    font-size: 3rem;
+    bottom: 0.5rem;
+    right: 1rem;
+  }
+`
 export const Container = styled.div`
   .logoCasousel {
-    background: var(--blue-500);
+    background: var(--blue-900);
     overflow: hidden;
+
     img {
       padding: 1rem 2rem;
     }
@@ -86,7 +138,7 @@ export const Container = styled.div`
 
     div {
       width: 50%;
-      background: var(--blue-500);
+      background: var(--blue-900);
       height: 100%;
       min-width: 22rem;
       border-radius: 2rem 0 2rem 0;

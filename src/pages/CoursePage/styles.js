@@ -49,8 +49,8 @@ export const Container = styled.div`
         margin-top: 1rem;
         border: none;
         text-transform: uppercase;
-        background: var(--gray);
         color: black;
+        background-color: var(--gray);
 
         &:disabled {
           opacity: 0.5;

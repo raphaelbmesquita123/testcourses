@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import MarkdownView from 'react-showdown';
 
 //styles
-import { Container } from './styles'
+import { Container, TextContainer } from './styles'
 
 //services
 import { api } from '../../services/api'
-import { handleSendErr } from '../../services/sendError'
 
 export function CourseDescriptionPage() {
   const { id } = useParams()
@@ -27,10 +27,11 @@ export function CourseDescriptionPage() {
               id: data.id,
               title: data.title,
               price: data.price,
+              image: data.image[0].url,
               description: data.description,
           })
         })
-        .catch((err) => handleSendErr(err))
+        .catch((err) => console.log(err))
     }
     getCourses()
   }, [id])
@@ -38,7 +39,15 @@ export function CourseDescriptionPage() {
 
   return (
     <Container>
-        <div dangerouslySetInnerHTML={{__html: JSON.stringify(course?.description)}}></div>
+        <section>
+          <div><h1>{course?.title}</h1></div>
+        </section>
+        <TextContainer >
+          <MarkdownView
+            markdown={`${course?.description}`}
+            options={{ tables: true, emoji: true }}
+          />
+        </TextContainer>
     </Container>
   )
 }

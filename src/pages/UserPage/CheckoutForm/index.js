@@ -53,7 +53,7 @@ export default function CheckoutForm() {
       .then(data => {
         setClientSecret(data.clientSecret);
       });
-  }, [itensToBasket]);
+  }, [user]);
 
   const cardStyle = {
     style: {

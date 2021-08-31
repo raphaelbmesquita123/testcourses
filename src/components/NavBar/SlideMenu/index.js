@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { FaWindowClose, FaAngleRight } from 'react-icons/fa'
+import { useLocation } from 'react-router-dom'
 
 //styles
-import { SlideContainer } from './styles'
+import { SlideContainer, SlideMenuButton } from './styles'
 
 export function SlideMenu() {
   const [slideOpen, setSlideOpen] = useState(false)
+  const { pathname }  = useLocation()
 
   return (
     <SlideContainer 
@@ -23,12 +24,20 @@ export function SlideMenu() {
           display={slideOpen ? 'none' : 'block' }
         />
         <ul>
-          <Link to='/' onClick={() => setSlideOpen(false)}>
-            <li>Home</li>
-          </Link>
-          <Link to='/WhyPage' onClick={() => setSlideOpen(false)}>
-            <li>Why testCourses?</li>
-          </Link>
+          <SlideMenuButton 
+            href='/' onClick={() => setSlideOpen(false)}
+            color={pathname === '/' && 'var(--white)'}
+            marginLeft={pathname === '/' && '4px solid var(--blue-500)'}
+            >
+            Home
+          </SlideMenuButton>
+          <SlideMenuButton 
+            href='/WhyPage' onClick={() => setSlideOpen(false)}
+            color={pathname === '/WhyPage' && 'var(--white)'}
+            marginLeft={pathname === '/WhyPage' && '4px solid var(--blue-500)'}
+            >
+            Why testCourses?
+          </SlideMenuButton>
         </ul>
       </div>
     </SlideContainer>

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const SignUpContainer = styled.div`
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   cursor: pointer;
   background-color: var(--blue-500);
-  color: white;
-
+  color: var(--gray);
+  border-radius: 5px;
   @media (max-width: 600px) {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;
@@ -17,8 +17,8 @@ export const SignUpModal = styled.div`
   position: relative;
   flex-direction: column;
   width: 100%;
-  padding: 1rem;
-  background: var(--blue-500);
+  padding: 0.5rem;
+  background: var(--blue-900);
 
   .closeModal {
     position: absolute;
@@ -36,12 +36,14 @@ export const SignUpModal = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    background-color: var(--blue-100);
+    background-color: var(--blue-900);
+    border-radius: 5px;
+
 
     input {
       margin-top: 1rem;
-      padding: 0.7rem;
+      padding: 1rem 0.7rem;
+      border-radius: 5px;
       &:focus {
         border: none;
       }
@@ -63,6 +65,7 @@ export const SignUpModal = styled.div`
       margin-top: 1rem;
       background: var(--gray);
       color: var(--blue-500);
+      border-radius: 5px;
 
       &:disabled {
         opacity: 0.5;

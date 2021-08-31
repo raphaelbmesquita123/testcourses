@@ -5,26 +5,100 @@ export const Container = styled.div`
 
   section {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    color: var(--white);
-    background-image: url(./fromHome.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
     width: 100%;
-    height: calc(100vh - 5.5rem);
+    height: calc(100vh - 4.5rem);
+    overflow: hidden;
 
-    h1 {
-      padding: 2rem;
-      font-size: 5rem;
-      text-shadow: -5px 5px 10px rgba(0, 0, 0, 50%);
-
-      @media (max-width: 600px) {
-        width: 90%;
-        font-size: 3rem;
+    div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url(./fromHome.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(2, 57, 83);
+        opacity: 0.85;
       }
+    }
+
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      padding: 2rem;
+      animation: fadeIn 1s;
+
+      .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      @-webkit-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        color: var(--gray);
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover{
+          transform: scale(0.98);
+        }
+
+        @media (max-width: 600px) {
+          text-align: left;
+          font-size: 3.2rem;
+        }
+      }
+
+      h3 {
+        margin-top: 1rem;
+        color: var(--blue-50);
+        text-align: center;
+        max-width: 600px;
+
+        @media (max-width: 600px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+    
+    a{
+      color: var(--blue-50);
+      position: absolute;
+      font-size: 3rem;
+      bottom: 0.5rem;
+      right: 1rem;
     }
   }
 
@@ -44,7 +118,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--blue-500);
+    background: var(--blue-900);
     padding: 4rem 2rem;
 
     h1 {
@@ -63,7 +137,7 @@ export const Container = styled.div`
         text-align: justify;
         padding: 2rem 2rem 2rem 0;
         min-width: 350px;
-        color: white;
+        color: var(--gray);
       }
       img {
         height: 12rem;
@@ -88,12 +162,12 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 4rem 2rem;
     background: var(--gray);
 
     h1 {
       color: var(--blue-500);
-      margin: 2rem 0;
+      margin-bottom: 3rem;
       text-transform: uppercase;
     }
   }

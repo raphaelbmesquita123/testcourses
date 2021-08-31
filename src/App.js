@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // styles
 import { GlobalStyle } from './styles/global'
-import { ContainerMessage, FooterContainer } from './styles/styles'
+import { FooterContainer } from './styles/styles'
 
 //pages
 import { HomePage } from './pages/HomePage'
@@ -41,10 +41,6 @@ function App() {
           />
 
           <GlobalStyle />
-          <ContainerMessage>
-            <h1>Be prepered for the labor market</h1>
-          </ContainerMessage>
-
           <NavBar />
 
           <Switch>

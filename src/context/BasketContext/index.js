@@ -23,8 +23,8 @@ export function BasketProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    api
-      .get('/courses', {
+    async function getCourses(){
+      api.get('/courses', {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
         },
@@ -43,7 +43,9 @@ export function BasketProvider({ children }) {
         setCourses(dataToBasket)
         setIsLoading(false)
       })
-      .catch((err) => handleSendErr(err))
+      .catch((err) => console.log(err))
+    }
+    getCourses()
   }, [])
 
   async function addToBasket(id) {
