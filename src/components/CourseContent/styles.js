@@ -16,7 +16,7 @@ export const Container = styled.div`
   }
 `
 
-export const TextContainer = styled.p`
+export const TextContainer = styled.div`
   max-width: 1080px;
   padding: 1rem;
   background-color: var(--gray);

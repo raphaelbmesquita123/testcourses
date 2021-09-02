@@ -11,7 +11,7 @@ export const Container = styled.div`
     width: 100vw;
     height: 50vh;
     z-index: -1;
-    background-image: url(/fromHome.png);
+    background-image: url(/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
   }
 `
-export const TextContainer = styled.p`
+export const TextContainer = styled.div`
   max-width: 1080px;
   margin: 0 auto;
   text-align: justify;

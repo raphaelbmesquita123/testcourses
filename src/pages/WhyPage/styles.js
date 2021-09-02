@@ -17,11 +17,11 @@ export const Container = styled.div`
       width: 100%;
       height: 100%;
       z-index: -1;
-      background-image: url(./fromHome.png);
+      background-image: url(./whyPage.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      /* background-attachment: fixed; */
       div {
         position: absolute;
         width: 100%;
@@ -37,7 +37,7 @@ export const Container = styled.div`
       align-items: center;
       max-width: 700px;
       padding: 2rem;
-      animation: fadeIn 1s;
+      animation: fadeIn 2s;
 
       .fadeIn {
         -webkit-animation-name: fadeIn;
@@ -71,6 +71,7 @@ export const Container = styled.div`
         text-align: center;
         cursor: pointer;
         transition: all 0.5s;
+
         &:hover{
           transform: scale(0.98);
         }

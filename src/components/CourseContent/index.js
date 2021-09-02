@@ -3,6 +3,7 @@ import { Container, TextContainer } from './styles'
 import MarkdownView from 'react-showdown';
 
 export function CourseContent({ content, loading }) {
+
   if (loading) {
     return <h2>loading</h2>
   } else {

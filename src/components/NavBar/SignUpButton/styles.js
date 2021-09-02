@@ -7,7 +7,12 @@ export const SignUpContainer = styled.div`
   color: var(--blue-900);
   border-radius: 5px;
   font-weight: 500;
-
+  &:hover {
+    filter: brightness(0.8);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
   @media (max-width: 600px) {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;
@@ -41,7 +46,6 @@ export const SignUpModal = styled.div`
     background-color: var(--blue-900);
     border-radius: 5px;
 
-
     input {
       margin-top: 1rem;
       padding: 1rem 0.7rem;
@@ -71,6 +75,12 @@ export const SignUpModal = styled.div`
 
       &:disabled {
         opacity: 0.5;
+      }
+      &:hover {
+        filter: brightness(0.8);
+      }
+      &:active {
+        transform: scale(0.98);
       }
     }
     .recaptcha {

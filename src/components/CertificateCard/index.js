@@ -7,9 +7,10 @@ export function CertificateCard({course, user}) {
     
     return (
         <Container>
-            <img src="/certificateTest.png" alt="certificate" />
-            <h1>{course.title}</h1>
+            <img src="/certificatevView.png" alt="certificate" />
             <h3>{user.user.firstName} {user.user.lastName}</h3>
+            <p>Has succesccfully completed training</p>
+            <span>{course.title}</span>
         </Container>
     )
 }

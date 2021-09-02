@@ -52,24 +52,28 @@ export function ProfessionalUser() {
       format: [210, 297],
     })
 
-    doc.addImage('/certificateTest.jpg', 'JPEG', 0, 0, 297, 210)
+    doc.addImage('/certificatevDownload.png', 'JPEG', 0, 0, 297, 210)
 
     doc.setFontSize(40)
-    doc.setTextColor(255, 255, 255)
-    doc.text(`${course.title}`, 148, 30, null, null, 'center')
-
-    doc.setFontSize(40)
-    doc.setTextColor(255, 255, 255)
     doc.text(
       `${user.user.firstName} ${user.user.lastName}`,
       148,
-      135,
+      123,
       null,
       null,
       'center'
     )
 
-    doc.save()
+    doc.setFontSize(16)
+    doc.setTextColor(157,158,158)
+    doc.text(`Has succesccfully completed training`, 148, 140, null, null, 'center')
+
+    doc.setFontSize(30)
+    doc.setTextColor(0,0,0)
+    doc.text(`${course.title}`, 148, 155, null, null, 'center')
+
+
+    doc.save(`${course.title}/${user.user.firstName} ${user.user.lastName}`)
   }
 
   useEffect(() => {

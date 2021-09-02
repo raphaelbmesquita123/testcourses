@@ -4,22 +4,36 @@ export const Container = styled.div`
     display: flex;
     position: relative;
     height: 15rem;
-    width: auto;
+    width: auto;    
+    transition: all 0.5s ;
 
-    h1{
-        position: absolute;
-        width: 100%;
-        top: 1rem;
-        color: var(--white);
-        margin: 0 auto;
-        text-align: center;
+    &:hover{
+        transform: scale(0.98);
     }
-    
     h3{
         position: absolute;
         width: 100%;
-        color: white;
-        bottom: 5.2rem;
+        bottom: 6.2rem;
         text-align: center;
+    }
+
+    p{
+        position: absolute;
+        width: 70%;
+        bottom: 4.7rem;
+        text-align: center;
+        font-size: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    span{
+        position: absolute;
+        width: 70%;
+        bottom: 3.4rem;
+        text-align: center;
+        font-size: 0.8rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 `
