@@ -25,7 +25,7 @@ export function NavBar() {
       <a href='/'>
         <img src='./testCourse.png' alt='topCourses Logo' />
       </a>
-      {width > 680 ? (
+      {width > 800 ? (
         <ul>
           <MenuButton
             color={pathname === '/' ? 'var(--white)' : 'var(--blue-500)'}
@@ -40,6 +40,13 @@ export function NavBar() {
             marginBottom={pathname === '/WhyPage' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
           >
             Why testCourses?
+          </MenuButton>
+          <MenuButton
+            href='/CertificateValidation'
+            color={pathname === '/CertificateValidation' ? 'var(--white)' : 'var(--blue-500)'}
+            marginBottom={pathname === '/CertificateValidation' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
+          >
+            Certificate Validation
           </MenuButton>
         </ul>
       ) : (

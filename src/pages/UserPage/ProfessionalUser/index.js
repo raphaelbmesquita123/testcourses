@@ -65,13 +65,19 @@ export function ProfessionalUser() {
     )
 
     doc.setFontSize(16)
-    doc.setTextColor(157,158,158)
-    doc.text(`Has succesccfully completed training`, 148, 140, null, null, 'center')
+    doc.setTextColor(157, 158, 158)
+    doc.text(
+      `Has succesccfully completed training`,
+      148,
+      140,
+      null,
+      null,
+      'center'
+    )
 
     doc.setFontSize(30)
-    doc.setTextColor(0,0,0)
+    doc.setTextColor(0, 0, 0)
     doc.text(`${course.title}`, 148, 155, null, null, 'center')
-
 
     doc.save(`${course.title}/${user.user.firstName} ${user.user.lastName}`)
   }
@@ -163,12 +169,8 @@ export function ProfessionalUser() {
               )
               if (isClientCertificated) {
                 return (
-                  <div>
-                    <CertificateCard
-                      key={course.id}
-                      user={user}
-                      course={course}
-                    />
+                  <div key={course.id}>
+                    <CertificateCard user={user} course={course} />
                     <button onClick={() => jsPdfGenerator(course, user)}>
                       DOWNLOAD
                     </button>

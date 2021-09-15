@@ -18,7 +18,6 @@ export const CarouselContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* background-attachment: fixed; */
 
     div {
       position: absolute;

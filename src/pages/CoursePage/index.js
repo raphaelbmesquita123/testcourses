@@ -8,11 +8,11 @@ import { Container, ProgressBarContainer } from './styles'
 //services
 import { api } from '../../services/api'
 import { handleAddClientToClientCertificate } from '../../services/addClientToClientCertificate'
+import { handleSendErr } from '../../services/sendError'
 
 //context
 import { User } from '../../context/UserContext'
 import { CourseContent } from '../../components/CourseContent'
-import { handleSendErr } from '../../services/sendError'
 
 export function CoursePage() {
   const { id } = useParams()

@@ -6,6 +6,7 @@ export const Container = styled.div`
     height: 15rem;
     width: auto;    
     transition: all 0.5s ;
+    box-shadow: -5px 10px 20px var(--blue-900);
 
     &:hover{
         transform: scale(0.98);

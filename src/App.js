@@ -14,6 +14,7 @@ import { UserPage } from './pages/UserPage'
 import { WhyPage } from './pages/WhyPage/'
 import { CoursePage } from './pages/CoursePage'
 import { CourseDescriptionPage } from './pages/CourseDescriptionPage'
+import { CertificateValidationPage } from './pages/CertificateValidationPage'
 
 //components
 import { NavBar } from './components/NavBar'
@@ -49,6 +50,7 @@ function App() {
             <Route exact path='/user/:id' component={UserPage} />
             <Route exact path='/course/:id' component={CoursePage} />
             <Route exact path='/course/description/:id' component={CourseDescriptionPage} />
+            <Route exact path='/CertificateValidation' component={CertificateValidationPage} />
           </Switch>
 
           <FooterContainer>

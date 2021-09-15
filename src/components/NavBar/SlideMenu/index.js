@@ -38,6 +38,13 @@ export function SlideMenu() {
             >
             Why testCourses?
           </SlideMenuButton>
+          <SlideMenuButton 
+            href='/CertificateValidation' onClick={() => setSlideOpen(false)}
+            color={pathname === '/CertificateValidation' ? 'var(--white)' : 'var(--blue-500)'}
+            marginLeft={pathname === '/CertificateValidation' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
+            >
+            Certificate Validation
+          </SlideMenuButton>
         </ul>
       </div>
     </SlideContainer>
