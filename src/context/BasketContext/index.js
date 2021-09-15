@@ -20,9 +20,10 @@ export function BasketProvider({ children }) {
     return []
   })
   const [courses, setCourses] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     async function getCourses(){
       api.get('/courses', {
         headers: {
@@ -41,9 +42,12 @@ export function BasketProvider({ children }) {
           }
         })
         setCourses(dataToBasket)
-        setIsLoading(false)
+        setLoading(false)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setLoading(false)
+        console.log(err)
+      })
     }
     getCourses()
   }, [])
@@ -104,7 +108,7 @@ export function BasketProvider({ children }) {
       value={{
         basket,
         courses,
-        isLoading,
+        loading,
         addToBasket,
         cleanBasket,
         deletItem,

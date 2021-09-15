@@ -8,10 +8,17 @@ export const CardContainer = styled.div`
   width: 20rem;
   transition: transform 0.2s ease-in-out;
   margin: 1rem;
-
-  img {
-    width: 100%;
-    height: auto;
+  section {
+    position: relative;
+    padding-top: 0;
+    /* width: 100%; */
+    /* min-width: 5rem; */
+    /* min-height: 20rem; */
+    background-color: var(--blue-500);
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   a {
@@ -29,6 +36,20 @@ export const CardContainer = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+`
+export const ImageContainer = styled.div`
+
+    position: relative;
+    padding-top: 0;
+    width: 100%;
+    min-width: 5rem;
+    min-height: 20rem;
+    background-color: var(--blue-500);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  
 `
 export const BuyPlayButton = styled.div`
   background-color: ${(props) => props.backgroundColor};

@@ -2,14 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+//component
+import { LoadingSpinner } from '../LoadingSpinner'
+
 //styles
-import { CardContainer, BuyPlayButton } from './styles'
+import { CardContainer, BuyPlayButton,ImageContainer } from './styles'
 
 //context
 import { User } from '../../context/UserContext'
 import { Basket } from '../../context/BasketContext'
 
-export function CourseCard({ id, payed, image, title, price }) {
+export function CourseCard({ id, payed, image, title, price, loading }) {
   const { addToBasket } = Basket()
   const { user } = User()
 
@@ -23,8 +26,15 @@ export function CourseCard({ id, payed, image, title, price }) {
 
   return (
     <CardContainer>
-      <img src={process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
-
+      <ImageContainer>
+        {
+          loading ?
+          <LoadingSpinner />
+          :
+          <img src={process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
+        }
+        
+      </ImageContainer>
       {payed ? (
         <Link to={`/course/${id}`}>
           <BuyPlayButton backgroundColor='green'>
@@ -39,7 +49,7 @@ export function CourseCard({ id, payed, image, title, price }) {
           <BuyPlayButton
             backgroundColor='var(--blue-900)'
             onClick={() => handleAddToBasket(id)}
-          >
+            >
             <p>{price}E ADD TO BASKET</p>
           </BuyPlayButton>
         </>

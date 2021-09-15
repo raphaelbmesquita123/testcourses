@@ -38,17 +38,6 @@ export const Container = styled.div`
   }
 `
 
-export const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.5;
-`
-
 export const ValidationContainer = styled.div`
   display: flex;
   flex-direction: column;

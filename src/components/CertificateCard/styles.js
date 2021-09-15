@@ -37,4 +37,14 @@ export const Container = styled.div`
         left: 50%;
         transform: translateX(-50%);
     }
+    h6{
+        position: absolute;
+        width: 70%;
+        bottom: 3.2rem;
+        color: var(--gray);
+        text-align: center;
+        font-size: 0.3rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 `

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
@@ -36,6 +36,7 @@ export function ProfessionalUser() {
     handleUserPageOption,
   } = User()
   const { basket, deletItem } = Basket()
+  const [ loading, setLoading ] = useState(false) 
 
   function handleDeletItem(id) {
     deletItem(id)
@@ -79,10 +80,15 @@ export function ProfessionalUser() {
     doc.setTextColor(0, 0, 0)
     doc.text(`${course.title}`, 148, 155, null, null, 'center')
 
+    doc.setFontSize(12)
+    doc.setTextColor(157, 158, 158)
+    doc.text(`CODE: ${user.user.id}`, 148, 165, null, null, 'center')
+    
     doc.save(`${course.title}/${user.user.firstName} ${user.user.lastName}`)
   }
 
   useEffect(() => {
+    setLoading(true)
     async function getCourses() {
       await api
         .get('/courses', {
@@ -100,12 +106,16 @@ export function ProfessionalUser() {
               payedCourses.push(data[i])
             }
           }
+          setLoading(false)
           handleUserCourses(payedCourses)
         })
-        .catch((err) => handleSendErr(err))
+        .catch((err) => {
+          setLoading(false)
+          handleSendErr(err)
+        })
     }
     getCourses()
-  }, [user, handleUserCourses])
+  }, [user])
 
   return (
     <Container>
@@ -155,6 +165,7 @@ export function ProfessionalUser() {
                   id={course.id}
                   image={course.image[0].url}
                   payed={true}
+                  loading={loading}
                 />
               )
             })}

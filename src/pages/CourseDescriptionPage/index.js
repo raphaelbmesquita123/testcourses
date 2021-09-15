@@ -3,6 +3,9 @@ import { CourseCard } from '../../components/CourseCard'
 import { useParams } from 'react-router-dom'
 import MarkdownView from 'react-showdown';
 
+//components
+import { LoadingSpinner } from '../../components/LoadingSpinner'
+
 //styles
 import { Container, TextContainer } from './styles'
 
@@ -12,9 +15,13 @@ import { api } from '../../services/api'
 export function CourseDescriptionPage() {
   const { id } = useParams()
   const [ course, setCourse ] = useState(null)   
+  const [ loading, setLoading ] = useState(false)
 
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
+    setLoading(true)
     async function getCourses() {
       await api
         .get(`/courses/${id}`, {
@@ -31,8 +38,12 @@ export function CourseDescriptionPage() {
               image: data.image[0].url,
               description: data.description,
           })
+          setLoading(false)
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          setLoading(false)
+          console.log(err)
+        })
     }
     getCourses()
   }, [id])
@@ -40,6 +51,7 @@ export function CourseDescriptionPage() {
 
   return (
     <Container>
+      {loading && <LoadingSpinner />}
         <section>
           <div><h1>{course?.title}</h1></div>
         </section>

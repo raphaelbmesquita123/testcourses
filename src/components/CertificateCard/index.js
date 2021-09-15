@@ -11,6 +11,7 @@ export function CertificateCard({course, user}) {
             <h3>{user.user.firstName} {user.user.lastName}</h3>
             <p>Has succesccfully completed training</p>
             <span>{course.title}</span>
+            <h6>code: {user.user.id}</h6>
         </Container>
     )
 }

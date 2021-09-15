@@ -1,6 +1,8 @@
 import React from 'react'
-import { Container, TextContainer } from './styles'
 import MarkdownView from 'react-showdown';
+
+//styles
+import { Container, TextContainer } from './styles'
 
 export function CourseContent({ content, loading }) {
 

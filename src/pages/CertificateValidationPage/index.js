@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
-import ClipLoader from 'react-spinners/ClipLoader'
 
 //styles
-import { Container, ValidationContainer, LoadingContainer } from './styles'
-import { css } from '@emotion/react'
+import { Container, ValidationContainer } from './styles'
 
 //services
 import { api } from '../../services/api'
@@ -12,18 +10,13 @@ import { handleSendErr } from '../../services/sendError'
 
 //context
 import { Basket } from '../../context/BasketContext'
+import { LoadingSpinner } from '../../components/LoadingSpinner'
 
 export function CertificateValidationPage() {
   const { courses } = Basket()
   const [loading, setLoading] = useState(false)
   const [option, setOption] = useState('')
   const [code, setCode] = useState('')
-
-  const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: blue;
-  `
 
   async function hadleCourseValidation(e) {
     e.preventDefault()
@@ -66,11 +59,7 @@ export function CertificateValidationPage() {
 
   return (
     <Container>
-      {loading && (
-        <LoadingContainer>
-          <ClipLoader loading={loading} css={override} size={150} />
-        </LoadingContainer>
-      )}
+      {loading && <LoadingSpinner loading={loading} />}
       <section>
         <div>
           <h1>Certificate Validation</h1>

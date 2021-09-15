@@ -18,7 +18,7 @@ import { Basket } from '../../context/BasketContext'
 
 export function HomePage() {
   const { width } = useWindowSize()
-  const { courses, isLoading } = Basket()
+  const { courses, loading } = Basket()
 
   var settingsLogoSlider = {
     infinite: true,
@@ -62,20 +62,19 @@ export function HomePage() {
       <div className='ourCourses' id='ourCourses'>
         <h1> Our courses </h1>
         <section>
-          {isLoading
-            ? ''
-            : courses.map((course) => {
-                return (
-                  <CourseCard
-                    key={course.id}
-                    id={course.id}
-                    image={course.image}
-                    title={course.title}
-                    price={course.price}
-                    payed={false}
-                  />
-                )
-              })}
+          {courses.map((course) => {
+            return (
+              <CourseCard
+                key={course.id}
+                id={course.id}
+                image={course.image}
+                title={course.title}
+                price={course.price}
+                payed={false}
+                loading={loading}
+              />
+            )
+          })}
         </section>
       </div>
       <div className='whyTestcourses'>

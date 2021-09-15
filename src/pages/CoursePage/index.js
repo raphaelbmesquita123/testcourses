@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import ProgressBar from '@ramonak/react-progress-bar'
-
 //styles
 import { Container, ProgressBarContainer } from './styles'
 
@@ -13,12 +12,13 @@ import { handleSendErr } from '../../services/sendError'
 //context
 import { User } from '../../context/UserContext'
 import { CourseContent } from '../../components/CourseContent'
+import { LoadingSpinner } from '../../components/LoadingSpinner'
 
 export function CoursePage() {
   const { id } = useParams()
   const { user } = User()
   const [coursePlaying, setCoursePlaying] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(() => {
     const localStore = localStorage.getItem(`${id}-Page:`)
     if (localStore) {
@@ -48,6 +48,7 @@ export function CoursePage() {
 
   //fetching the course
   useEffect(() => {
+    setLoading(true)
     async function getCourses() {
       await api
         .get(`/courses/${id}`, {
@@ -61,10 +62,13 @@ export function CoursePage() {
           const isUserPayed = splitClients.includes(user.user.email)
           if (isUserPayed) {
             setCoursePlaying(data)
-            setIsLoading(false)
+            setLoading(false)
           }
         })
-        .catch((err) => handleSendErr(err))
+        .catch((err) => {
+          setLoading(false)
+          handleSendErr(err)
+        })
     }
     getCourses()
   }, [user, id])
@@ -101,6 +105,7 @@ export function CoursePage() {
   }
   return (
     <Container>
+      {loading && <LoadingSpinner />}
       <section>
         <h1>{coursePlaying?.title}</h1>
         {currentPage === contentLength && (
@@ -115,7 +120,7 @@ export function CoursePage() {
         )}
       </section>
       <div>
-        <CourseContent loading={isLoading} content={currentContent} />
+        <CourseContent loading={loading} content={currentContent} />
         <section>
           <button
             className='previousPage'
