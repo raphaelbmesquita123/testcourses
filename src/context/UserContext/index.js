@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
-import { useIdleTimer } from 'react-idle-timer'
-import { toast } from 'react-toastify'
+
 
 export const UserContext = createContext({})
 
@@ -14,18 +13,11 @@ export function UserProvider({ children }) {
   })
   const [userCourses, setUserCourses] = useState([])
   const [userPageOption, setUserPageOption] = useState(1)
+ 
 
-  const handleOnIdle = () => {
-    toast.info('Sorry we logged you out because there is no activity')
-    userLogOut()
-  }
+ 
 
-  const logoutUser =  useIdleTimer({
-    timeout: 5 * 60 * 1000,
-    onIdle: handleOnIdle,
-    debounce: 500,
-  })
-
+  
   
   function userLogOut() {
     setUser(null)

@@ -12,7 +12,7 @@ export function UserPage() {
     const { user } = User()
     const history = useHistory()
 
-    if( user === null ){
+    if(!user){
         history.push('/')
     }
 
