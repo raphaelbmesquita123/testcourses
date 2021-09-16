@@ -6,7 +6,6 @@ import { Container, ValidationContainer } from './styles'
 
 //services
 import { api } from '../../services/api'
-import { handleSendErr } from '../../services/sendError'
 
 //context
 import { Basket } from '../../context/BasketContext'
@@ -22,11 +21,16 @@ export function CertificateValidationPage() {
     e.preventDefault()
     setLoading(true)
     try {
-      const { data: userEmail } = await api.get(`/users/${code}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
-        },
-      })
+      const { data: userEmail } = await api
+        .get(`/users/${code}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
+          },
+        })
+        .catch((err) => {
+          toast.info(`The code: ${code} does not exist`)
+          throw err
+        })
       const course = courses.find((course) => course.title === option)
       const { data: usersCertificated } = await api.get(
         `courses/${course.id}`,
@@ -53,7 +57,8 @@ export function CertificateValidationPage() {
         setLoading(false)
       }
     } catch (err) {
-      handleSendErr(err)
+      setLoading(false)
+      throw err
     }
   }
 

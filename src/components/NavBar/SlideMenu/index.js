@@ -7,12 +7,10 @@ import { SlideContainer, SlideMenuButton } from './styles'
 
 export function SlideMenu() {
   const [slideOpen, setSlideOpen] = useState(false)
-  const { pathname }  = useLocation()
+  const { pathname } = useLocation()
 
   return (
-    <SlideContainer 
-    left={ slideOpen ? '0' : '-100%' }>
-      
+    <SlideContainer left={slideOpen ? '0' : '-100%'}>
       <div>
         <FaWindowClose
           className='closeSlide'
@@ -21,28 +19,45 @@ export function SlideMenu() {
         <FaAngleRight
           className='openSlide'
           onClick={() => setSlideOpen(true)}
-          display={slideOpen ? 'none' : 'block' }
+          display={slideOpen ? 'none' : 'block'}
         />
         <ul>
-          <SlideMenuButton 
-            href='/' onClick={() => setSlideOpen(false)}
+          <SlideMenuButton
+            href='/'
+            onClick={() => setSlideOpen(false)}
             color={pathname === '/' ? 'var(--white)' : 'var(--blue-500)'}
-            marginLeft={pathname === '/' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
-            >
+            marginLeft={
+              pathname === '/' ? '4px solid var(--blue-500)' : 'var(--blue-500)'
+            }
+          >
             Home
           </SlideMenuButton>
-          <SlideMenuButton 
-            href='/WhyPage' onClick={() => setSlideOpen(false)}
+          <SlideMenuButton
+            href='/WhyPage'
+            onClick={() => setSlideOpen(false)}
             color={pathname === '/WhyPage' ? 'var(--white)' : 'var(--blue-500)'}
-            marginLeft={pathname === '/WhyPage' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
-            >
+            marginLeft={
+              pathname === '/WhyPage'
+                ? '4px solid var(--blue-500)'
+                : 'var(--blue-500)'
+            }
+          >
             Why testCourses?
           </SlideMenuButton>
-          <SlideMenuButton 
-            href='/CertificateValidation' onClick={() => setSlideOpen(false)}
-            color={pathname === '/CertificateValidation' ? 'var(--white)' : 'var(--blue-500)'}
-            marginLeft={pathname === '/CertificateValidation' ? '4px solid var(--blue-500)' : 'var(--blue-500)'}
-            >
+          <SlideMenuButton
+            href='/CertificateValidation'
+            onClick={() => setSlideOpen(false)}
+            color={
+              pathname === '/CertificateValidation'
+                ? 'var(--white)'
+                : 'var(--blue-500)'
+            }
+            marginLeft={
+              pathname === '/CertificateValidation'
+                ? '4px solid var(--blue-500)'
+                : 'var(--blue-500)'
+            }
+          >
             Certificate Validation
           </SlideMenuButton>
         </ul>

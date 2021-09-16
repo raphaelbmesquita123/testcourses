@@ -22,15 +22,14 @@ export function UserLogged() {
     toast.success('You were log out')
   }
 
-  function handleBaskePageOption(){
-    if(basket.length > 0){
+  function handleBaskePageOption() {
+    if (basket.length > 0) {
       history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
       handleUserPageOption(3)
     } else {
       history.push(`/user/${user?.user.firstName + user?.user.lastName}`)
     }
   }
-
 
   return (
     <Container>

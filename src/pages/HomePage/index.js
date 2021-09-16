@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+
 
 //styles
 import { Container, CarouselContainer } from './styles'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 //component
 import { CourseCard } from '../../components/CourseCard'

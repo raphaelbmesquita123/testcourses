@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 // styles
 import { GlobalStyle } from './styles/global'
 import { FooterContainer } from './styles/styles'
+import 'react-toastify/dist/ReactToastify.css'
 
 //pages
 import { HomePage } from './pages/HomePage'
@@ -22,7 +22,6 @@ import { NavBar } from './components/NavBar'
 //providers
 import { UserProvider } from './context/UserContext'
 import { BasketProvider } from './context/BasketContext'
-
 
 function App() {
   return (
@@ -49,8 +48,16 @@ function App() {
             <Route exact path='/WhyPage' component={WhyPage} />
             <Route exact path='/user/:id' component={UserPage} />
             <Route exact path='/course/:id' component={CoursePage} />
-            <Route exact path='/course/description/:id' component={CourseDescriptionPage} />
-            <Route exact path='/CertificateValidation' component={CertificateValidationPage} />
+            <Route
+              exact
+              path='/course/description/:id'
+              component={CourseDescriptionPage}
+            />
+            <Route
+              exact
+              path='/CertificateValidation'
+              component={CertificateValidationPage}
+            />
           </Switch>
 
           <FooterContainer>
