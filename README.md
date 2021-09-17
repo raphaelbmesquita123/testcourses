@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# OBS: THE APPLICATION IS STILL BEING BUILT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# For this project you also have to Clone both repositories below
 
-## Available Scripts
+### NodeJs Back-end to deal the payment
+```js
+https://github.com/raphaelbmesquita123/node-backend
+```
 
-In the project directory, you can run:
+### Strapi Back-end
+```js
+https://github.com/raphaelbmesquita123/web-coures-strapi
+```
 
-### `yarn start`
+# Runing the project
+```js
+yarn
+``` 
+to install or 
+```js
+npm install
+```
+# Create .env in the application root
+## Add a variable
+```js
+REACT_APP_STRIPE_URL=http://localhost:1337
+```
+```js
+REACT_APP_NODE_URL=http://localhost:4242
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### You will need to create an account on stripe and get your public key.
+```js
+REACT_APP_STRIPE_PUBLIC=
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### After the server running, you will need to create a Administrator user and get its JWT.
+```js
+REACT_APP_STRAPI_JWT=
 
-### `yarn test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# After installing the dependencies and variable
+```js
+yarn start
+```
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# DEMO
+### First Open NodeJs server
+https://web-courses-node-backend.herokuapp.com/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Strapi server
+https://webcourses-strapibackend.herokuapp.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Application website
+https://web-courses-frontend.herokuapp.com/
 
-### `yarn eject`
+# Technology
+- ReactJs
+- React Hooks
+- NodeJs
+- Strapi
+- Stripe
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# POKEMON STORE
+#### HOME PAGE
+- You can choose to see the pokemon by its type
+![HOME PAGE](.github/pokeStore.png) 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Conection center
 
-## Learn More
+<a href="https://www.linkedin.com/in/raphael-mesquita-135996139/" style="display: flex;  justify-content: center; align-items: center; text-decoration: none; color: #e69d58;">
+ <img src="https://github.com/raphaelbmesquita123/pokemon-shop/blob/main/.github/LinkedIn-Logo.png" width="25px" /> 
+ <p>Linkedin</p>
+</a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<a href="https://www.instagram.com/raphaelbmesquita" style="display: flex; justify-content: center;align-items: center; text-decoration: none; color: #e69d58;">
+ <img src="https://github.com/raphaelbmesquita123/pokemon-shop/blob/main/.github/instagram.jpg" width="20px" /> 
+ <p>Instagram</p>
+</a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a href="https://www.facebook.com/raphael.brandaomesquita/" style="display: flex;  justify-content: center; align-items: center; text-decoration: none; color: #e69d58;">
+ <img src="https://github.com/raphaelbmesquita123/pokemon-shop/blob/main/.github/facebook.png" width="25px" /> 
+ <p>Facebook</p>
+</a>
 
-### Code Splitting
+<br>
+<p style="display: flex;  justify-content: center; align-items: center; text-decoration: none; color: #e69d58;">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+℗ 2021 Raphael Mesquita
