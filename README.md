@@ -63,11 +63,11 @@ https://web-courses-frontend.herokuapp.com/
 - Strapi
 - Stripe
 
-# POKEMON STORE
-#### HOME PAGE
-- You can choose to see the pokemon by its type
-![HOME PAGE](.github/pokeStore.png) 
+# HOME PAGE
 
+- You can create account, buy a course using the Stripe Card for testes (4242 4242 4242 4242), watch the couse and download your certificate.
+
+![HOME PAGE](.github/WebSite.png) 
 
 
 # Conection center
