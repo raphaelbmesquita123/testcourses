@@ -12,7 +12,7 @@ export const Container = styled.div`
   @media (max-width: 600px) {
     padding: 2rem;
   }
-  section{
+  section {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@ export const Container = styled.div`
       color: var(--gray);
     }
 
-    button{
+    button {
       padding: 1rem;
       border: none;
       background-color: red;
@@ -39,7 +39,6 @@ export const Container = styled.div`
         padding: 0.5rem;
       }
     }
-
   }
   div {
     display: flex;
@@ -70,9 +69,8 @@ export const Container = styled.div`
   }
 `
 
-
 export const ProgressBarContainer = styled.div`
-    width: 100%;
-    max-width: 1080px;
-    margin: 1rem auto 0 auto;
+  width: 100%;
+  max-width: 1080px;
+  margin: 1rem auto 0 auto;
 `

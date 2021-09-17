@@ -7,27 +7,17 @@ import { ProfessionalUser } from './ProfessionalUser'
 //context
 import { User } from '../../context/UserContext'
 
-
 export function UserPage() {
-    const { user } = User()
-    const history = useHistory()
+  const { user } = User()
+  const history = useHistory()
 
-    if(!user){
-        history.push('/')
-    }
+  if (!user) {
+    history.push('/')
+  }
 
-    return (
-        <>
-            <ProfessionalUser />
-        </>
-    )
+  return (
+    <>
+      <ProfessionalUser />
+    </>
+  )
 }
-
-
-
-
-
-
-
-
-

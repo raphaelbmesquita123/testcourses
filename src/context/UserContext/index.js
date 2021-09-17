@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
 
-
 export const UserContext = createContext({})
 
 export function UserProvider({ children }) {
@@ -13,12 +12,7 @@ export function UserProvider({ children }) {
   })
   const [userCourses, setUserCourses] = useState([])
   const [userPageOption, setUserPageOption] = useState(1)
- 
 
- 
-
-  
-  
   function userLogOut() {
     setUser(null)
     localStorage.removeItem('@Web-courses-login:')

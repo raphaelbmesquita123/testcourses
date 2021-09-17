@@ -47,13 +47,13 @@ export const TextContainer = styled.div`
   margin-bottom: 1rem;
   background-color: var(--gray);
   letter-spacing: 1px;
-  
-  h1{
+
+  h1 {
     color: var(--blue-700);
     padding: 1rem 0;
     margin-top: 1rem;
 
-    &:first-child{
+    &:first-child {
       margin-top: 0rem;
     }
   }

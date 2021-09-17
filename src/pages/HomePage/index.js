@@ -2,7 +2,6 @@ import React from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import Slider from 'react-slick'
 
-
 //styles
 import { Container, CarouselContainer } from './styles'
 import 'slick-carousel/slick/slick.css'

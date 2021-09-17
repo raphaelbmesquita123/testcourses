@@ -77,14 +77,14 @@ export const LogoutContainer = styled.main`
       color: var(--blue-50);
       font-weight: normal;
       font-size: 0.8rem;
-      span{
+      span {
         font-size: 1.2rem;
         font-weight: bold;
         color: var(--gray);
       }
     }
   }
-  
+
   button {
     margin-top: 2rem;
     padding: 1rem 4rem;
@@ -94,12 +94,12 @@ export const LogoutContainer = styled.main`
     font-size: 4rem;
     font-weight: bold;
     color: var(--blue-900);
-    
-    &:hover{
+
+    &:hover {
       filter: brightness(0.9);
     }
 
-    &:active{
+    &:active {
       transform: scale(0.98);
     }
   }

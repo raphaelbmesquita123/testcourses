@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 //styles
-import { LoginButtonContainer, LoginContainer} from './styles'
+import { LoginButtonContainer, LoginContainer } from './styles'
 
 //services
 import { api } from '../../../services/api'
@@ -58,7 +58,7 @@ export function LoginButton() {
         })
         .catch((error) => {
           // Handle error.
-          if(error.message === 'Network Error'){
+          if (error.message === 'Network Error') {
             handleSendErr(error)
           } else {
             const { data } = error.response
@@ -78,7 +78,7 @@ export function LoginButton() {
             }
           }
         })
-      } catch (err) {
+    } catch (err) {
       handleSendErr(err)
     }
   }

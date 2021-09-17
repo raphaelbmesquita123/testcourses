@@ -72,7 +72,7 @@ export const Container = styled.div`
         cursor: pointer;
         transition: all 0.5s;
 
-        &:hover{
+        &:hover {
           transform: scale(0.98);
         }
 
@@ -92,8 +92,8 @@ export const Container = styled.div`
         }
       }
     }
-    
-    a{
+
+    a {
       color: var(--blue-50);
       position: absolute;
       font-size: 3rem;

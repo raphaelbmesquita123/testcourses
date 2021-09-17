@@ -36,7 +36,7 @@ export function ProfessionalUser() {
     handleUserPageOption,
   } = User()
   const { basket, deletItem } = Basket()
-  const [ loading, setLoading ] = useState(false) 
+  const [loading, setLoading] = useState(false)
 
   function handleDeletItem(id) {
     deletItem(id)
@@ -83,7 +83,7 @@ export function ProfessionalUser() {
     doc.setFontSize(12)
     doc.setTextColor(157, 158, 158)
     doc.text(`CODE: ${user.user.id}`, 148, 165, null, null, 'center')
-    
+
     doc.save(`${course.title}/${user.user.firstName} ${user.user.lastName}`)
   }
 

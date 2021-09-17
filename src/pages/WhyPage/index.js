@@ -1,9 +1,9 @@
 import React from 'react'
 import { toast } from 'react-toastify'
 import emailjs from 'emailjs-com'
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown } from 'react-icons/fa'
 
-// components 
+// components
 import { FAQ } from '../../components/FAQ'
 
 // styles
@@ -41,9 +41,12 @@ export function WhyPage() {
         </div>
         <span>
           <h1>Stay up to date with our online courses</h1>
-          <h3>Our mission is to train people who are looking to become a professional to facilitate their search in the job market</h3>
+          <h3>
+            Our mission is to train people who are looking to become a
+            professional to facilitate their search in the job market
+          </h3>
         </span>
-        <a href="#FAQ">
+        <a href='#FAQ'>
           <FaAngleDown />
         </a>
       </section>
@@ -70,7 +73,7 @@ export function WhyPage() {
           <img src='./certificate.png' alt='certifiicate' />
         </div>
       </div>
-      <div className='FAQ' id="FAQ">
+      <div className='FAQ' id='FAQ'>
         <h1>Faq</h1>
         <FAQ
           question='how long it takes to get my certificate?'

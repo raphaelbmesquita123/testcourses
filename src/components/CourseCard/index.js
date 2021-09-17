@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { LoadingSpinner } from '../LoadingSpinner'
 
 //styles
-import { CardContainer, BuyPlayButton,ImageContainer } from './styles'
+import { CardContainer, BuyPlayButton, ImageContainer } from './styles'
 
 //context
 import { User } from '../../context/UserContext'
@@ -27,13 +27,7 @@ export function CourseCard({ id, payed, image, title, price, loading }) {
   return (
     <CardContainer>
       <ImageContainer>
-        {
-          loading ?
-          <LoadingSpinner />
-          :
-          <img src={process.env.REACT_APP_STRIPE_URL + image} alt='kp course' />
-        }
-        
+        {loading ? <LoadingSpinner /> : <img src={image} alt='kp course' />}
       </ImageContainer>
       {payed ? (
         <Link to={`/course/${id}`}>
@@ -49,7 +43,7 @@ export function CourseCard({ id, payed, image, title, price, loading }) {
           <BuyPlayButton
             backgroundColor='var(--blue-900)'
             onClick={() => handleAddToBasket(id)}
-            >
+          >
             <p>{price}E ADD TO BASKET</p>
           </BuyPlayButton>
         </>

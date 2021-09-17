@@ -14,8 +14,7 @@ export function FAQ({ question, answer }) {
           <FaArrowAltCircleDown onClick={() => setShow(!show)} />
         </small>
       </div>
-      <AnswerContainer 
-        display={ show ? 'none' : 'flex'} >
+      <AnswerContainer display={show ? 'none' : 'flex'}>
         <small>{answer}</small>
       </AnswerContainer>
     </Container>

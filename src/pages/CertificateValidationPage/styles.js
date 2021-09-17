@@ -63,7 +63,6 @@ export const ValidationContainer = styled.div`
       border-radius: 5px;
       border: none;
     }
-    
 
     button {
       padding: 1rem 2rem;

@@ -1,11 +1,10 @@
 import React from 'react'
-import MarkdownView from 'react-showdown';
+import MarkdownView from 'react-showdown'
 
 //styles
 import { Container, TextContainer } from './styles'
 
 export function CourseContent({ content, loading }) {
-
   if (loading) {
     return <h2>loading</h2>
   } else {
@@ -19,9 +18,9 @@ export function CourseContent({ content, loading }) {
                   <h3>{course.title}</h3>
                   <TextContainer height='25rem'>
                     <MarkdownView
-                        markdown={`${course.description}`}
-                        options={{ tables: true, emoji: true }}
-                      />
+                      markdown={`${course.description}`}
+                      options={{ tables: true, emoji: true }}
+                    />
                   </TextContainer>
                 </>
               ) : (

@@ -24,30 +24,31 @@ export function BasketProvider({ children }) {
 
   useEffect(() => {
     setLoading(true)
-    async function getCourses(){
-      api.get('/courses', {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
-        },
-      })
-      .then((response) => {
-        const { data } = response
-        const dataToBasket = data.map((course) => {
-          return {
-            id: course.id,
-            title: course.title,
-            price: course.price,
-            image: course.image[0].url,
-            payed_clients: course.payed_clients,
-          }
+    async function getCourses() {
+      api
+        .get('/courses', {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_STRAPI_JWT}`,
+          },
         })
-        setCourses(dataToBasket)
-        setLoading(false)
-      })
-      .catch((err) => {
-        setLoading(false)
-        console.log(err)
-      })
+        .then((response) => {
+          const { data } = response
+          const dataToBasket = data.map((course) => {
+            return {
+              id: course.id,
+              title: course.title,
+              price: course.price,
+              image: course.image[0].url,
+              payed_clients: course.payed_clients,
+            }
+          })
+          setCourses(dataToBasket)
+          setLoading(false)
+        })
+        .catch((err) => {
+          setLoading(false)
+          console.log(err)
+        })
     }
     getCourses()
   }, [])
@@ -61,14 +62,13 @@ export function BasketProvider({ children }) {
 
     try {
       const splitClients = data.payed_clients.split(' ')
-      const hasClientBought =  splitClients.includes(user.user.email)
-      if (hasClientBought){
+      const hasClientBought = splitClients.includes(user.user.email)
+      if (hasClientBought) {
         toast.info('You already bought this course')
       }
       const hasCourseOnBaket = basket.find((course) => course.id === data.id)
-      if(hasCourseOnBaket){
+      if (hasCourseOnBaket) {
         toast.info('You already have this course in your basket')
-
       }
       if (!hasCourseOnBaket) {
         const splitClients = data.payed_clients.split(' ')

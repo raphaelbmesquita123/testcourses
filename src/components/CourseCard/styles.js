@@ -11,9 +11,6 @@ export const CardContainer = styled.div`
   section {
     position: relative;
     padding-top: 0;
-    /* width: 100%; */
-    /* min-width: 5rem; */
-    /* min-height: 20rem; */
     background-color: var(--blue-500);
     img {
       width: 100%;
@@ -38,18 +35,16 @@ export const CardContainer = styled.div`
   }
 `
 export const ImageContainer = styled.div`
-
-    position: relative;
-    padding-top: 0;
+  position: relative;
+  padding-top: 0;
+  width: 100%;
+  min-width: 5rem;
+  min-height: 20rem;
+  background-color: var(--blue-500);
+  img {
     width: 100%;
-    min-width: 5rem;
-    min-height: 20rem;
-    background-color: var(--blue-500);
-    img {
-      width: 100%;
-      height: auto;
-    }
-  
+    height: auto;
+  }
 `
 export const BuyPlayButton = styled.div`
   background-color: ${(props) => props.backgroundColor};

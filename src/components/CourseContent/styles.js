@@ -25,7 +25,7 @@ export const TextContainer = styled.div`
   overflow: scroll;
 
   @media (max-width: 600px) {
-      max-height: 20rem;
-      overflow: scroll;
-    }
+    max-height: 20rem;
+    overflow: scroll;
+  }
 `

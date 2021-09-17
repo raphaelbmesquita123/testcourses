@@ -109,11 +109,7 @@ export function CoursePage() {
       <section>
         <h1>{coursePlaying?.title}</h1>
         {currentPage === contentLength && (
-          <button
-            onClick={() =>
-              handleCertificateSubmition()
-            }
-          >
+          <button onClick={() => handleCertificateSubmition()}>
             {' '}
             Certificate{' '}
           </button>

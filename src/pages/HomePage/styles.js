@@ -69,9 +69,9 @@ export const CarouselContainer = styled.div`
       cursor: pointer;
       transition: all 0.5s;
 
-      &:hover{
-          transform: scale(0.98);
-        }
+      &:hover {
+        transform: scale(0.98);
+      }
 
       @media (max-width: 600px) {
         font-size: 3.2rem;

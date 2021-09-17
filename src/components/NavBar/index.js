@@ -42,7 +42,6 @@ export function NavBar() {
     }
   }
 
-
   const handleUserStillActive = () => {
     setShowBanner(false)
     setIsUserActive(true)

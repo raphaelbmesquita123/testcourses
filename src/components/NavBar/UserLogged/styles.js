@@ -10,7 +10,8 @@ export const Container = styled.div`
     align-items: flex-end;
     margin-right: 0.8rem;
 
-    div, p{
+    div,
+    p {
       position: relative;
       text-transform: uppercase;
       font-size: 0.8rem;

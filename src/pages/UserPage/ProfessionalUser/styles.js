@@ -43,7 +43,7 @@ export const Container = styled.div`
     padding: 3rem 2rem;
 
     .basket {
-      min-height: calc(100vh - 300px); 
+      min-height: calc(100vh - 300px);
       margin-top: 1rem;
       button {
         padding: 0.5rem;
@@ -134,7 +134,7 @@ export const CoursesContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  min-height: calc(100vh - 300px); 
+  min-height: calc(100vh - 300px);
 `
 
 export const CertificatesContainer = styled.div`
@@ -142,12 +142,12 @@ export const CertificatesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 1rem;
-  min-height: calc(100vh - 300px); 
-  div{
+  min-height: calc(100vh - 300px);
+  div {
     position: relative;
     margin: 1rem;
-    
-    button{
+
+    button {
       position: absolute;
       top: 15rem;
       padding: 0.5rem;
@@ -156,13 +156,12 @@ export const CertificatesContainer = styled.div`
       color: var(--blue-500);
       border-radius: 6px;
 
-      &:active{
+      &:active {
         transform: scale(0.98);
       }
     }
   }
 `
-
 
 export const ItemBasket = styled.div`
   display: flex;
@@ -175,7 +174,7 @@ export const ItemBasket = styled.div`
   box-shadow: -5px 10px 10px var(--blue-500);
   border-top: 1px solid var(--blue-100);
   margin-top: 0.4rem;
-  
+
   &:first-child {
     margin-top: 0rem;
   }
@@ -192,4 +191,3 @@ export const ItemBasket = styled.div`
     cursor: pointer;
   }
 `
-
