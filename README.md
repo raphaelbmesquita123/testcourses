@@ -37,7 +37,17 @@ REACT_APP_STRIPE_PUBLIC=
 ### After the server running, you will need to create a Administrator user and get its JWT.
 ```js
 REACT_APP_STRAPI_JWT=
+```
 
+### You will need to create an account on the EMAILJS service
+```js
+REACT_APP_EMAILJS_SERVICE=
+```
+```js
+REACT_APP_EMAILJS_TEMPLATE=
+```
+```js
+REACT_APP_EMAILJS_USER=
 ```
 
 # After installing the dependencies and variable
