@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import whyPageBackground from '../../images/whyPage.png'
 
 export const Container = styled.div`
   width: 100%;
@@ -17,11 +18,10 @@ export const Container = styled.div`
       width: 100%;
       height: 100%;
       z-index: -1;
-      background-image: url(./whyPage.png);
+      background-image: url(${whyPageBackground});
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      /* background-attachment: fixed; */
       div {
         position: absolute;
         width: 100%;

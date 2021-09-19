@@ -16,6 +16,13 @@ import { useWindowSize } from '../../services/windowDimensions/windowDimensions'
 //context
 import { Basket } from '../../context/BasketContext'
 
+//imagens
+import logo1 from '../../images/l1.png'
+import logo2 from '../../images/l2.png'
+import logo3 from '../../images/l3.png'
+import logo4 from '../../images/l4.png'
+import certificate from '../../images/certificate.png'
+
 export function HomePage() {
   const { width } = useWindowSize()
   const { courses, loading } = Basket()
@@ -50,13 +57,13 @@ export function HomePage() {
       </CarouselContainer>
       <div className='logoCasousel'>
         <Slider {...settingsLogoSlider}>
-          <img src='./l1.png' alt='logo' />
-          <img src='./l2.png' alt='logo' />
-          <img src='./l3.png' alt='logo' />
-          <img src='./l1.png' alt='logo' />
-          <img src='./l2.png' alt='logo' />
-          <img src='./l3.png' alt='logo' />
-          <img src='./l3.png' alt='logo' />
+          <img src={logo1} alt='logo' />
+          <img src={logo2} alt='logo' />
+          <img src={logo3} alt='logo' />
+          <img src={logo4} alt='logo' />
+          <img src={logo1} alt='logo' />
+          <img src={logo2} alt='logo' />
+          <img src={logo3} alt='logo' />
         </Slider>
       </div>
       <div className='ourCourses' id='ourCourses'>
@@ -96,7 +103,7 @@ export function HomePage() {
       <div className='certificateContainer'>
         <h1>Textcourses certificate</h1>
         <div>
-          <img src='./certificate.png' alt='certificate' />
+          <img src={certificate} alt='certificate' />
           <span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, et.
             Cum aliquam quidem tempora earum eligendi iure repellendus vel. Sed,

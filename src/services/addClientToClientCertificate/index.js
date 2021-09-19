@@ -5,11 +5,11 @@ import { api } from '../api'
 import { handleSendErr } from '../sendError'
 
 export async function handleAddClientToClientCertificate(course, clientEmail) {
-  const clients_certificated_array = course.clients_certificate.split(' ')
-  const isClientCertificated = clients_certificated_array.includes(clientEmail)
+  const clientsCertificatedArray = course.clients_certificate.split(' ')
+  const isClientCertificated = clientsCertificatedArray.includes(clientEmail)
   if (!isClientCertificated) {
-    clients_certificated_array.push(clientEmail)
-    const newCertificatedClients = clients_certificated_array.join(' ')
+    clientsCertificatedArray.push(clientEmail)
+    const newCertificatedClients = clientsCertificatedArray.join(' ')
     try {
       await api.put(
         `courses/${course.id}`,

@@ -46,7 +46,7 @@ const SignUpSchema = yup.object().shape({
 })
 
 export function SignUpButton() {
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [ isModalOpen, setIsModalOpen] = useState(false)
   const [isVerified, setIsVerified] = useState(true)
 
   const {
@@ -57,7 +57,7 @@ export function SignUpButton() {
     resolver: yupResolver(SignUpSchema),
   })
 
-  function HandleRecaptcha() {
+  function handleRecaptcha() {
     setIsVerified(false)
   }
 
@@ -79,7 +79,7 @@ export function SignUpButton() {
         }
       )
 
-      setIsOpen(false)
+      setIsModalOpen(false)
       toast.success('Account Created Successfully')
     } catch (err) {
       handleSendErr(err)
@@ -87,11 +87,11 @@ export function SignUpButton() {
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsModalOpen(true)
   }
 
   function closeModal() {
-    setIsOpen(false)
+    setIsModalOpen(false)
     setIsVerified(true)
   }
 
@@ -100,7 +100,7 @@ export function SignUpButton() {
       <SignUpContainer onClick={openModal}>Sign up</SignUpContainer>
 
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={ isModalOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel='Example Modal'
@@ -144,7 +144,7 @@ export function SignUpButton() {
             <ReCAPTCHA
               className='recaptcha'
               sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-              onChange={HandleRecaptcha}
+              onChange={handleRecaptcha}
             />
             <button type='submit' value='Confirm' disabled={isVerified}>
               Create

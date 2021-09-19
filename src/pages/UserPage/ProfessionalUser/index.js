@@ -25,6 +25,9 @@ import { Basket } from '../../../context/BasketContext'
 import { api } from '../../../services/api'
 import { handleSendErr } from '../../../services/sendError'
 
+//images
+import certificateDownload from '../../../images/certificateDownload.png'
+
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC)
 
 export function ProfessionalUser() {
@@ -53,7 +56,7 @@ export function ProfessionalUser() {
       format: [210, 297],
     })
 
-    doc.addImage('/certificatevDownload.png', 'JPEG', 0, 0, 297, 210)
+    doc.addImage(`${certificateDownload}`, 'JPEG', 0, 0, 297, 210)
 
     doc.setFontSize(40)
     doc.text(

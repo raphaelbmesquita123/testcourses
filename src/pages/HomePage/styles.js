@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+//images
+import backgroundimage from '../../images/homePage.png'
+import whyPage from '../../images/courseDescriptionBackground.png'
+
 export const CarouselContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -14,7 +18,7 @@ export const CarouselContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url(./homePage.png);
+    background-image: url(${backgroundimage});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -135,7 +139,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./background.png);
+    background-image: url(${whyPage});
     background-repeat: no-repeat;
     background-size: cover;
     padding: 6rem 2rem;

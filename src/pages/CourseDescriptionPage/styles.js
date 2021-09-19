@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import backgroundimage from '../../images/courseDescriptionBackground.png'
 
 export const Container = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const Container = styled.div`
     width: 100vw;
     height: 50vh;
     z-index: -1;
-    background-image: url(/background.png);
+    background-image: url(${backgroundimage});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

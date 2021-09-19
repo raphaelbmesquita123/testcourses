@@ -12,15 +12,18 @@ import { Container } from './styles'
 //services
 import { handleSendErr } from '../../services/sendError'
 
+//imagens
+import certificate from '../../images/certificate.png'
+
 export function WhyPage() {
   function sendEmail(e) {
     e.preventDefault()
     emailjs
       .sendForm(
-        'service_xfskimn',
-        'template_a3j93kc',
+        process.env.REACT_APP_EMAILJS_SERVICE,
+        process.env.REACT_APP_EMAILJS_TEMPLATE,
         e.target,
-        'user_b3vLK4nmsJDCovCRtPpoB'
+        process.env.REACT_APP_EMAILJS_USER
       )
       .then(
         (result) => {
@@ -70,7 +73,7 @@ export function WhyPage() {
             iure repudiandae nihil placeat eos nam eveniet debitis eum sint
             autem similique!
           </p>
-          <img src='./certificate.png' alt='certifiicate' />
+          <img src={certificate} alt='certifiicate' />
         </div>
       </div>
       <div className='FAQ' id='FAQ'>

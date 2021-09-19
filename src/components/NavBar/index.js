@@ -19,6 +19,9 @@ import { useWindowSize } from '../../services/windowDimensions/windowDimensions'
 //context
 import { User } from '../../context/UserContext'
 
+//imagens
+import logo from '../../images/testCourse.png'
+
 export function NavBar() {
   const { width } = useWindowSize()
   const { user, userLogOut } = User()
@@ -66,7 +69,7 @@ export function NavBar() {
         <button onClick={() => handleUserStillActive()}>Yes</button>
       </LogoutContainer>
       <a href='/'>
-        <img src='./testCourse.png' alt='topCourses Logo' />
+        <img src={logo} alt='topCourses Logo' />
       </a>
       {width > 800 ? (
         <ul>
